@@ -1,0 +1,71 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.base {
+  /* display: flex; */
+  width: 30vw;
+  max-width: 400px;
+  height: 80vh;
+  background-color: #FFFFFF;
+  /* justify-content: center;
+  align-items: center; */
+  border: 1px solid #ccc;
+}
+
+.header {
+  padding: 5px;
+  margin-left: 22px;
+  margin-right: 20px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  height: fit-content;
+}
+
+.app-name {
+  font-size: 1.5em;
+  font-weight: normal;
+  color: 	#0E4C92;
+}
+
+.main {
+  height: 75%;
+  max-height: 500px;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 19px 19px;
+}
+
+h1 {
+  font-size: 1.5em;
+  color: 	#0E4C92;
+}
+
+h2 {
+  font-size: 1.1em;
+}
+
+.home-msg {
+  margin: 0 26px
+}
+
+.activities {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-top: 33px;
+}
