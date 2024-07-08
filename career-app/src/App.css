@@ -8,9 +8,8 @@ html, body {
 
 .base {
   /* display: flex; */
-  width: 30vw;
-  max-width: 400px;
-  height: 80vh;
+  width: 400px;
+  height: 696px;
   background-color: #FFFFFF;
   /* justify-content: center;
   align-items: center; */
@@ -37,7 +36,7 @@ html, body {
   height: 75%;
   max-height: 500px;
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: transparent;
 }
 
 .navbar {
@@ -60,6 +59,16 @@ h2 {
   margin: 0 26px
 }
 
+.inner-content {
+  height: 100%;
+  margin: 0 26px;
+  overflow: scroll;
+}
+
+.bottom-margin {
+  margin-bottom: 35px;
+}
+
 .activities {
   height: fit-content;
   display: flex;
@@ -68,4 +77,68 @@ h2 {
   align-items: center;
   gap: 40px;
   margin-top: 33px;
+}
+
+/*Chatbot CSS*/
+div .cs-message-list__typing-indicator-container div {
+  color: rgb(163, 163, 163);
+}
+
+div .cs-main-container,
+div .cs-chat-container .cs-message-input {
+  border: 0px;
+  margin-top: 16px;
+}
+
+div .cs-chat-container .cs-message-input {
+  background-color: #FFFFFF;
+}
+
+div .cs-message--incoming .cs-message__content {
+  background-color: #EAEBED;
+}
+
+
+div .ps__thumb-y,
+div .ps__rail-y:hover .ps__thumb-y,
+div .ps__rail-y:active .ps__thumb-y {
+  background-color: #C6E3FA;
+}
+
+div .cs-message-input__content-editor,
+div .cs-message-input__content-editor-wrapper
+{
+  background-color: #EAEBED;
+}
+
+div .cs-message-list
+{
+  background-color: #ffffff;
+}
+
+div .cs-message--outgoing .cs-message__content {
+  background-color: #C6E3FA; 
+}
+
+div .cs-typing-indicator__dot {
+  background-color: rgb(163, 163, 163);
+}
+
+/* Hobbies Form */
+form {
+  display: inline-block;
+  text-align: left;
+  margin-top: 10px;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 300px;
+}
+
+button {
+  padding: 8px 16px;
+  margin: 5px;
 }

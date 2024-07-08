@@ -11,10 +11,13 @@ import Profile from './pages/profile';
 import Careers from './pages/careers';
 import Chatbot from './pages/chatbot';
 import Subjects from './pages/subjects';
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
   return (
-    <Routes>
+    <Provider store={store}>
+      <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/interests' element={<Interests />}/>
         <Route path='/skills' element={<Skills />}/>
@@ -23,7 +26,8 @@ function App() {
         <Route path='/careers' element={<Careers />}/>
         <Route path='/chatbot' element={<Chatbot />}/>
         <Route path='/subjects' element={<Subjects />}/>
-    </Routes>
+      </Routes>
+    </Provider>
   );
 }
 
