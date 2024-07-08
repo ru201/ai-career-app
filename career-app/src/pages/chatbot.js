@@ -8,7 +8,7 @@ import { MainContainer, ChatContainer, MessageInput, TypingIndicator, MessageLis
 
 export default function Chatbot () {
 
-    const API_KEY = "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"
+    const API_KEY = process.env.REACT_APP_API_KEY;
 
     const [typing, setTyping] = useState(false)
     const [messages, setMessages] = useState([
