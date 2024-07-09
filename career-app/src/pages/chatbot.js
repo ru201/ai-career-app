@@ -8,7 +8,7 @@ import { MainContainer, ChatContainer, MessageInput, TypingIndicator, MessageLis
 
 export default function Chatbot () {
 
-    const AI_KY = process.env.REACT_APP_API_KEY;
+    const API_KEY = process.env.REACT_APP_API_KEY;
 
     const [typing, setTyping] = useState(false)
     const [messages, setMessages] = useState([
@@ -67,7 +67,7 @@ export default function Chatbot () {
           await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
             headers: {
-              "Authorization": "Bearer " + AI_KY,
+              "Authorization": "Bearer " + API_KEY,
               "Content-Type": "application/json"
             },
             body: JSON.stringify(apiRequestBody)
