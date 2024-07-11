@@ -6,6 +6,7 @@ import Quiz from '../components/quiz';
 import { useDispatch } from 'react-redux';
 import { completeSkills } from '../dataSlice';
 import { useNavigate } from "react-router-dom";
+import { GenerateSkillsProfile } from "../helpers";
 
 export default function Skills () {
 
@@ -19,6 +20,7 @@ export default function Skills () {
         setSelectedSkills(newSkills);
         console.log(selectedSkills);
         dispatch(completeSkills(newSkills));
+        GenerateSkillsProfile(newSkills, dispatch);
         navigate('/');
     }
 

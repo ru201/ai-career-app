@@ -9,7 +9,7 @@ import { Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; 
 import { useDispatch } from 'react-redux';
 import { completeInterests } from '../dataSlice';
-
+import { GenerateInterestProfile } from "../helpers";
 
 export default function Interests () {
     const [hobbies, setHobbies] = useState([]);
@@ -20,10 +20,6 @@ export default function Interests () {
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
-
-    const handleCompleteInterests = () => {
-        dispatch(completeInterests({'Hobbies': hobbies, 'Subjects': subjects, 'Scores': riasecScores}));
-    };
 
     const handleHobbyFormChange = (newHobbies) => {
         setHobbies(newHobbies);
@@ -38,10 +34,27 @@ export default function Interests () {
     };
 
     const handleSubmit = () => {
+        const mappedScores = {};
+        Object.keys(questions).forEach(category => {
+            questions[category].forEach((element, index) => {
+              if (riasecScores[category][index] === 5) {
+                mappedScores[element] = "Strongly Agree";
+              } else if (riasecScores[category][index] === 4) {
+                mappedScores[element] = "Slightly Agree";
+              } else if (riasecScores[category][index] === 3) {
+                mappedScores[element] = "Neutral";
+              } else if (riasecScores[category][index] === 2) {
+                mappedScores[element] = "Slightly Disagree";
+              } else if (riasecScores[category][index] === 1) {
+                mappedScores[element] = "Strongly Disagree";
+              }
+            });
+        });
         console.log('Hobbies submitted:', hobbies);
         console.log('Subjects submitted:', subjects);
-        console.log('Scores:', riasecScores);
-        handleCompleteInterests();
+        console.log('Scores:', mappedScores);
+        dispatch(completeInterests({'Hobbies': hobbies, 'Subjects': subjects, 'Scores': mappedScores}));
+        GenerateInterestProfile({'Hobbies': hobbies, 'Subjects': subjects, 'RIASEC Assessment': mappedScores}, dispatch);
         navigate('/');
     };
 

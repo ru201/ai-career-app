@@ -6,9 +6,11 @@ const RatingForm = ({ onChange, questions }) => {
     Object.keys(questions).forEach(category => {
       initialScores[category] = new Array(questions[category].length).fill(3);
     });
-  
+    
+    // Send initial scores to parent component
     const [scores, setScores] = useState(initialScores);
-  
+    onChange(scores);
+
     const handleRadioChange = (category, index, value) => {
       const newScores = { ...scores };
       newScores[category][index] = value;

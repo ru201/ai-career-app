@@ -7,26 +7,39 @@ import { Box, Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { completeValues } from '../dataSlice';
 import { useNavigate } from "react-router-dom";
+import { GenerateValuesProfile } from "../helpers";
 
 export default function Values () {
 
-    const [values, setValues] = useState([]);
+    const [values, setValues] = useState();
 
     const navigate = useNavigate();
     
     const dispatch = useDispatch();
-
-    const handleCompleteValues = () => {
-        dispatch(completeValues(values));
-    };
-
+    
     const handleChange = (newValues) => {
         setValues(newValues)
     };
 
     const handleSubmit = () => {
-        console.log(values);
-        handleCompleteValues();
+        // Change Values
+        const mappedValues = {};
+        Object.keys(questions).forEach(category => {
+            questions[category].forEach((element, index) => {
+              if (values[category][index] === 4) {
+                mappedValues[element] = "Very Important";
+              } else if (values[category][index] === 3) {
+                mappedValues[element] = "Important";
+              } else if (values[category][index] === 2) {
+                mappedValues[element] = "Neutral";
+              } else if (values[category][index] === 1) {
+                mappedValues[element] = "Not Important";
+              }
+            });
+        });
+        console.log(mappedValues);
+        dispatch(completeValues(mappedValues));
+        GenerateValuesProfile(mappedValues, dispatch);
         navigate('/');
     }
 
@@ -80,7 +93,7 @@ export default function Values () {
             <div className="main bottom-margin">
                 <div className="inner-content">
                     <h1 style={{marginBottom: '40px'}}>Career Values</h1>
-                    <p style={{marginBottom: '30px'}}>Your career values are what you find important and gain satisfaction from at work. <br /><br /> Identifying and understanding your career values can help you explore more suitable career options. <br /><br /> Let's find out what values are important to you. Select the importance level for each item below.</p>
+                    <p style={{marginBottom: '30px'}}>Your career values are what you find important and gain satisfaction from at work. <br /><br /> Identifying and understanding your career values can help you explore more suitable career options. <br /><br /> Let's find out what values are important to you. Select how important you find each item below.</p>
                     <RatingValueForm onChange={handleChange} questions={questions} />
                     <Box
                         sx={{
