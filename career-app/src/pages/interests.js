@@ -15,7 +15,6 @@ export default function Interests () {
     const [hobbies, setHobbies] = useState([]);
     const [subjects, setSubjects] = useState([]);
 
-    // Change Riasec Scores
     const [riasecScores, setRiasecScores] = useState({});
     const navigate = useNavigate();
 

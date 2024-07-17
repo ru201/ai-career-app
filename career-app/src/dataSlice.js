@@ -5,9 +5,9 @@ const dataSlice = createSlice({
   initialState: {
     interestsComplete: false,
     valuesComplete: false,
-    skillsComplete: false, 
+    skillsComplete: false,
     interests: {},
-    values: [], 
+    values: [],
     skills: [],
     interestProfile: {},
     valuesProfile: {},
@@ -40,16 +40,16 @@ const dataSlice = createSlice({
       state.careers = action.payload;
     },
     resetData: (state) => {
-        state.interestsComplete = false;
-        state.valuesComplete = false;
-        state.skillsComplete = false;
-        state.interests = {};
-        state.skills = [];
-        state.values = [];
+      state.interestsComplete = false;
+      state.valuesComplete = false;
+      state.skillsComplete = false;
+      state.interests = {};
+      state.skills = [];
+      state.values = [];
     }
   },
 });
 
-export const { completeInterests, completeValues, completeSkills, updateInterestProfile,updateValuesProfile, updateSkillsProfile, updateCareers, resetData  } = dataSlice.actions;
+export const { completeInterests, completeValues, completeSkills, updateInterestProfile, updateValuesProfile, updateSkillsProfile, updateCareers, resetData } = dataSlice.actions;
 
 export default dataSlice.reducer;

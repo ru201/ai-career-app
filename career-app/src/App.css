@@ -55,6 +55,10 @@ h2 {
   font-size: 1.1em;
 }
 
+h3 {
+  font-size: 1em;
+}
+
 .home-msg {
   margin: 0 26px
 }
@@ -62,6 +66,7 @@ h2 {
 .inner-content {
   height: 100%;
   margin: 0 26px;
+  padding-right: 8px;
   overflow: scroll;
 }
 
@@ -146,7 +151,24 @@ button {
 /* Charts Style */
 .chart-container {
   width: 100%;
-  max-width: 400px;  /* You can adjust this value to fit your layout */
-  height: 200px;  /* Adjust the height as needed */
+  max-width: 400px;  
+  height: 200px;  
   margin: 0 10px 0 0;
+}
+
+.score-box {
+  background-color: #e9eaeb;
+  padding: 1px 15px;
+  margin-right: 0px;
+}
+
+.description-container {
+  width: 100%;
+  max-width: 400px;  
+  height: fit-content;  
+  margin: 0 10px 40px 0;
+}
+
+.smaller-text {
+  font-size: 0.9em;
 }
