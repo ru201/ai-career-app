@@ -11,12 +11,15 @@ export default function Activities() {
     const valuesComplete = useSelector((state) => state.data.valuesComplete);
     const skillsComplete = useSelector((state) => state.data.skillsComplete);
 
+    // For generating careers
     const interests = useSelector((state) => state.data.interests);
     const values = useSelector((state) => state.data.values);
     const skills = useSelector((state) => state.data.skills);
+    const careers = useSelector((state) => state.data.careers);
+    const dispatch = useDispatch();
+    const dataFilled = Object.keys(interests).length > 0 && Object.keys(values).length > 0 && skills.length > 0;
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const buttonStyle = { width: '230px', borderRadius: 3 };
     const completeButtonStyle = { width: '230px', borderRadius: 3, backgroundColor: '#33B249', '&:hover': {backgroundColor: '#2CA740'} };
@@ -26,8 +29,11 @@ export default function Activities() {
 
     console.log('interestsComplete: ', interestsComplete, 'valuesComplete: ', valuesComplete, 'skillsComplete: ', skillsComplete);
 
-    const handleUnlock = () => {
+    if (allActivitiesComplete && dataFilled && Object.keys(careers).length === 0) {
         GenerateCareers(interests, skills, values, dispatch);
+    }
+
+    const handleUnlock = () => {
         navigate('/profile');
     }
 

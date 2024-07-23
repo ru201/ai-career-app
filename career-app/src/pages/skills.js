@@ -3,8 +3,8 @@ import '../App.css';
 import Header from '../components/header';
 import Navbar from  '../components/navbar';
 import Quiz from '../components/quiz';
-import { useDispatch } from 'react-redux';
-import { completeSkills } from '../dataSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { completeSkills, updateSkillsProfile } from '../dataSlice';
 import { useNavigate } from "react-router-dom";
 import { GenerateSkillsProfile } from "../helpers";
 
@@ -15,12 +15,14 @@ export default function Skills () {
     const navigate = useNavigate();
     
     const dispatch = useDispatch();
+    const interests = useSelector((state) => state.data.interests);
 
     const handleSubmit = (newSkills) => {
+        dispatch(updateSkillsProfile({}));
         setSelectedSkills(newSkills);
         console.log(selectedSkills);
         dispatch(completeSkills(newSkills));
-        GenerateSkillsProfile(newSkills, dispatch);
+        GenerateSkillsProfile(newSkills, interests, dispatch);
         navigate('/');
     }
 

@@ -7,9 +7,10 @@ import SubjectForm from '../components/subjectform';
 import RatingForm from '../components/ratingform';
 import { Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; 
-import { useDispatch } from 'react-redux';
-import { completeInterests } from '../dataSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { completeInterests, updateInterestProfile } from '../dataSlice';
 import { GenerateInterestProfile } from "../helpers";
+import { GenerateSkillsProfile } from "../helpers";
 
 export default function Interests () {
     const [hobbies, setHobbies] = useState([]);
@@ -19,6 +20,7 @@ export default function Interests () {
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
+    const skills = useSelector((state) => state.data.skills);
 
     const handleHobbyFormChange = (newHobbies) => {
         setHobbies(newHobbies);
@@ -33,6 +35,7 @@ export default function Interests () {
     };
 
     const handleSubmit = () => {
+        dispatch(updateInterestProfile({}));
         const mappedScores = {};
         Object.keys(questions).forEach(category => {
             questions[category].forEach((element, index) => {
@@ -54,6 +57,9 @@ export default function Interests () {
         console.log('Scores:', mappedScores);
         dispatch(completeInterests({'Hobbies': hobbies, 'Subjects': subjects, 'Scores': mappedScores}));
         GenerateInterestProfile({'Hobbies': hobbies, 'Subjects': subjects, 'RIASEC Assessment': mappedScores}, dispatch);
+        if (skills.length > 0) {
+          GenerateSkillsProfile(skills, {'Hobbies': hobbies, 'Subjects': subjects, 'RIASEC Assessment': mappedScores}, dispatch)
+        }
         navigate('/');
     };
 
@@ -111,7 +117,7 @@ export default function Interests () {
                     <p>Identifying and understanding your interests is a great starting point for building the self-awareness needed for career decision making.<br /><br />Complete the activities below to help us understand your interests.</p>
                     <HobbyForm onChange={handleHobbyFormChange} />
                     <SubjectForm onChange={handleSubjectFormChange} />
-                    <h2 style={{marginTop: '40px'}}>RIASEC Assessment</h2>
+                    <h2 style={{marginTop: '40px'}}>Interests Assessment</h2>
                     <p>For each statement below select how well you agree with it.</p>
                     <RatingForm questions={questions} onChange={handleRiasecFormChange} />
                     <Box

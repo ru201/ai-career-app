@@ -21,7 +21,7 @@ const SubjectForm = ({ onChange }) => {
 
   return (
     <div style={{ marginTop: '40px' }}>
-      <h2>Enter Your Favourite Subjects</h2>
+      <h2>Enter Your Favourite School Subjects</h2>
       <Box component="form" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 2 }}>
         {subjects.map((subject, index) => (
           <TextField

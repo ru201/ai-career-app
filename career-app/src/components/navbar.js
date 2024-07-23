@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import WorkIcon from '@mui/icons-material/Work';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
-import PersonIcon from '@mui/icons-material/Person';
+import ChatIcon from '@mui/icons-material/Chat';
 
 export default function Navbar () {
 
@@ -21,6 +21,10 @@ export default function Navbar () {
 
     const handleClickProfile = () => {
         navigate('/profile');
+    };
+
+    const handleClickChat = () => {
+        navigate('/chatbot');
     };
 
     const iconButtonStyle = {
@@ -54,11 +58,11 @@ export default function Navbar () {
                 <WorkIcon />
             </IconButton>
             <IconButton
-                aria-label="person"
-                onClick={handleClickHome}
+                aria-label="chat"
+                onClick={handleClickChat}
                 sx={iconButtonStyle}
             >
-                <PersonIcon />
+                <ChatIcon />
             </IconButton>
         </div>
     );

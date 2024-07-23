@@ -1,7 +1,7 @@
 import React from "react";
 import '../App.css';
-import ChatIcon from '@mui/icons-material/Chat';
 import IconButton from '@mui/material/IconButton';
+import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
 
 export default function Header () {
@@ -9,7 +9,7 @@ export default function Header () {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate('/chatbot');
+        navigate('/');
     };
 
     return (
@@ -25,7 +25,7 @@ export default function Header () {
                     }
                 }}
             >
-                <ChatIcon />
+                <PersonIcon />
             </IconButton>
         </div>
     );

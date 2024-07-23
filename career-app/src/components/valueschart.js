@@ -1,5 +1,5 @@
 import React from 'react';
-import { PieChart, Pie, Tooltip, Cell } from 'recharts';
+import { PieChart, Pie, Tooltip, Cell, ResponsiveContainer } from 'recharts';
 import '../App.css';
 
 const ValuesChart = ({ chartData, handleSelect }) => {
@@ -47,28 +47,30 @@ const ValuesChart = ({ chartData, handleSelect }) => {
 
     return (
         <div className='chart-container'>
-            <PieChart width={300} height={200}>
-                <Pie
-                    dataKey="score"
-                    isAnimationActive={false}
-                    data={chartData}
-                    cx="53%"
-                    cy="50%"
-                    outerRadius={50}
-                    label={renderCustomizedLabel}
-                    labelLine={renderCustomizedLabelLine}
-                >
-                    {chartData.map((entry, index) => (
-                        <Cell 
-                            key={`cell-${index}`} 
-                            fill={entry.fill} 
-                            onClick={() => handleSelect(entry.name)}
-                            style={{ cursor: 'pointer' }} 
-                        />
-                    ))}
-                </Pie>
-                <Tooltip />
-            </PieChart>
+            <ResponsiveContainer width="100%" height="100%">
+                <PieChart width={300} height={200}>
+                    <Pie
+                        dataKey="score"
+                        isAnimationActive={false}
+                        data={chartData}
+                        cx="50%"
+                        cy="50%"
+                        outerRadius={50}
+                        label={renderCustomizedLabel}
+                        labelLine={renderCustomizedLabelLine}
+                    >
+                        {chartData.map((entry, index) => {
+                            return <Cell 
+                                key={`cell-${index}`} 
+                                fill={entry.fill} 
+                                onClick={() => handleSelect(entry.name)}
+                                style={{ cursor: 'pointer' }} 
+                            />
+                        })}
+                    </Pie>
+                    <Tooltip />
+                </PieChart>
+            </ResponsiveContainer>
         </div>
     );
 };

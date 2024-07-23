@@ -5,16 +5,15 @@ import Navbar from '../components/navbar';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.css';
 import { MainContainer, ChatContainer, MessageInput, TypingIndicator, MessageList, Message } from '@chatscope/chat-ui-kit-react';
 import { useSelector } from 'react-redux';
-import Markdown from 'react-markdown'
-import remarkGfm from 'remark-gfm';
+import OpenAI from "openai";
+
+const openai = new OpenAI({ apiKey: process.env.REACT_APP_API_KEY, dangerouslyAllowBrowser: true });
 
 export default function Chatbot() {
   const interests = useSelector((state) => state.data.interests);
   const skills = useSelector((state) => state.data.skills);
   const values = useSelector((state) => state.data.values);
   const careers = useSelector((state) => state.data.careers);
-
-  const API_KEY = process.env.REACT_APP_API_KEY;
 
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
@@ -52,11 +51,11 @@ export default function Chatbot() {
     const systemMessage = [
       {
         role: "system",
-        content: "Act as a friendly, motivating career advisor and personal counsellor for senior high school students who may not know what career they want to pursue."
+        content: "Act as a friendly, motivating career advisor and personal counsellor for senior high school students who may not know what career they want to pursue. Only output plain text. Do not output markdown."
       },
       {
         role: "user",
-        content: `The data objects below are my interests, skills, values and AI-generated recommended careers you provided. Help me with any queries I have regarding my profile and career decision making. Make it personalised and adaptable to my messages.
+        content: `The data objects below are my interests, skills, values and AI-generated recommended careers you provided. Help me with any queries I have regarding my profile and career decision making. Make it personalised and adaptable to my messages. Only output plain text. Do not output markdown.
         Interests: ${JSON.stringify(interests)}.
         Skills: ${skills.toString()}.
         Values: ${JSON.stringify(values)}.
@@ -64,24 +63,14 @@ export default function Chatbot() {
       }
     ];
 
-    const apiRequestBody = {
-      "model": "gpt-3.5-turbo",
-      "messages": [
+    await openai.chat.completions.create({
+      messages: [
         ...systemMessage,
         ...apiMessages
-      ]
-    };
-
-    await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": "Bearer " + API_KEY,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(apiRequestBody)
+      ],
+      model: "gpt-4o-mini"
     }).then((data) => {
-      return data.json();
-    }).then((data) => {
+      console.log(data)
       setMessages(
         [...chatMessages, {
           message: `${data.choices[0].message.content}`,
@@ -90,18 +79,9 @@ export default function Chatbot() {
         }]
       );
       setTyping(false);
-    });
-  }
+    }); 
 
-  const CustomMessage = ({ message, direction, sender }) => {
-    return (
-      <div className={`message ${direction} ${sender}`}>
-        <Markdown remarkPlugins={[remarkGfm]}>
-          {message}
-        </Markdown>
-      </div>
-    );
-  };
+  }
 
   return (
     <div id='chatbot' className='base'>
@@ -113,13 +93,7 @@ export default function Chatbot() {
               typingIndicator={typing ? <TypingIndicator content="Typing" /> : null}
             >
               {messages.map((message, i) => (
-                <Message key={i} model={{ message: message.message, direction: message.direction, sender: message.sender }}>
-                  <CustomMessage
-                    message={message.message}
-                    direction={message.direction}
-                    sender={message.sender}
-                  />
-                </Message>
+                <Message key={i} model={{ message: message.message, direction: message.direction, sender: message.sender }} />
               ))}
             </MessageList>
             <MessageInput placeholder='Type message here' onSend={handleSend} attachButton={false} />

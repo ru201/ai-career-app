@@ -18,6 +18,8 @@ const RatingValueForm = ({ onChange, questions }) => {
       onChange(newScores); // Notify the parent component about the change
     };
 
+    const style = { '&:hover': { backgroundColor: 'transparent' } };
+
     return (
         <div style={{ marginTop: '40px' }}>
         <Box sx={{mt: 4}}>
@@ -33,10 +35,10 @@ const RatingValueForm = ({ onChange, questions }) => {
                         onChange={(event) => handleRadioChange(category, index, Number(event.target.value))}
                         sx={{mb: 2}}
                     >
-                        <FormControlLabel value={4} control={<Radio />} label="Very Important" />
-                        <FormControlLabel value={3} control={<Radio />} label="Important" />
-                        <FormControlLabel value={2} control={<Radio />} label="Neutral" />
-                        <FormControlLabel value={1} control={<Radio />} label="Not  Important" />
+                        <FormControlLabel value={4} control={<Radio sx={style} />} label="Very Important" />
+                        <FormControlLabel value={3} control={<Radio sx={style} />} label="Important" />
+                        <FormControlLabel value={2} control={<Radio sx={style} />} label="Neutral" />
+                        <FormControlLabel value={1} control={<Radio sx={style} />} label="Not  Important" />
                     </RadioGroup>
                     </FormControl>
                 </Box>

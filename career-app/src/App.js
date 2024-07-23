@@ -11,6 +11,7 @@ import Profile from './pages/profile';
 import Careers from './pages/careers';
 import Chatbot from './pages/chatbot';
 import Subjects from './pages/subjects';
+import Career from './pages/career';
 import { Provider } from 'react-redux';
 import { store, persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -28,6 +29,7 @@ function App() {
           <Route path='/values' element={<Values />}/>
           <Route path='/profile' element={<Profile />}/>
           <Route path='/careers' element={<Careers />}/>
+          <Route path='/careers/:careerTitle' element={<Career />}/>
           <Route path='/chatbot' element={<Chatbot />}/>
           <Route path='/subjects' element={<Subjects />}/>
         </Routes>

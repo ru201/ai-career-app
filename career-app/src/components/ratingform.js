@@ -2,21 +2,23 @@ import React, { useState } from 'react';
 import { Box, Typography, FormControl, FormControlLabel, RadioGroup, Radio } from '@mui/material';
 
 const RatingForm = ({ onChange, questions }) => {
-    const initialScores = {};
-    Object.keys(questions).forEach(category => {
-      initialScores[category] = new Array(questions[category].length).fill(3);
-    });
-    
-    // Send initial scores to parent component
-    const [scores, setScores] = useState(initialScores);
-    onChange(scores);
+  const initialScores = {};
+  Object.keys(questions).forEach(category => {
+    initialScores[category] = new Array(questions[category].length).fill(3);
+  });
+  
+  // Send initial scores to parent component
+  const [scores, setScores] = useState(initialScores);
+  onChange(scores);
 
-    const handleRadioChange = (category, index, value) => {
-      const newScores = { ...scores };
-      newScores[category][index] = value;
-      setScores(newScores);
-      onChange(newScores); // Notify the parent component about the change
-    };
+  const handleRadioChange = (category, index, value) => {
+    const newScores = { ...scores };
+    newScores[category][index] = value;
+    setScores(newScores);
+    onChange(newScores); // Notify the parent component about the change
+  };
+
+  const style = { '&:hover': { backgroundColor: 'transparent' } };
 
   return (
     <div style={{ marginTop: '40px' }}>
@@ -34,11 +36,11 @@ const RatingForm = ({ onChange, questions }) => {
                     onChange={(event) => handleRadioChange(category, index, Number(event.target.value))}
                     sx={{mb: 2}}
                   >
-                    <FormControlLabel value={5} control={<Radio />} label="Strongly Agree" />
-                    <FormControlLabel value={4} control={<Radio />} label="Agree" />
-                    <FormControlLabel value={3} control={<Radio />} label="Neutral" />
-                    <FormControlLabel value={2} control={<Radio />} label="Disagree" />
-                    <FormControlLabel value={1} control={<Radio />} label="Strongly Disagree" />
+                    <FormControlLabel value={5} control={<Radio sx={style} />} label="Strongly Agree" />
+                    <FormControlLabel value={4} control={<Radio sx={style} />} label="Agree" />
+                    <FormControlLabel value={3} control={<Radio sx={style} />} label="Neutral" />
+                    <FormControlLabel value={2} control={<Radio sx={style} />} label="Disagree" />
+                    <FormControlLabel value={1} control={<Radio sx={style} />} label="Strongly Disagree" />
                   </RadioGroup>
                 </FormControl>
               </Box>
