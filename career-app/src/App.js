@@ -14,14 +14,14 @@ import Subjects from './pages/subjects';
 import Career from './pages/career';
 import { Provider } from 'react-redux';
 import { store, persistor } from './store';
-import { PersistGate } from 'redux-persist/integration/react';
+// import { PersistGate } from 'redux-persist/integration/react';
 
 function App() {
   // persistor.purge();
 
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/interests' element={<Interests />}/>
@@ -33,7 +33,7 @@ function App() {
           <Route path='/chatbot' element={<Chatbot />}/>
           <Route path='/subjects' element={<Subjects />}/>
         </Routes>
-      </PersistGate>
+      {/* </PersistGate> */}
     </Provider>
   );
 }
