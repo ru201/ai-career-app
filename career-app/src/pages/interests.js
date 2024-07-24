@@ -8,9 +8,9 @@ import RatingForm from '../components/ratingform';
 import { Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; 
 import { useDispatch, useSelector } from 'react-redux';
-import { completeInterests, updateInterestProfile } from '../dataSlice';
-import { GenerateInterestProfile } from "../helpers";
-import { GenerateSkillsProfile } from "../helpers";
+import { completeInterests, updateCareers, updateInterestProfile, updateSkillsProfile } from '../dataSlice';
+import { GenerateCareers, GenerateInterestProfile } from "../apiHelpers";
+import { GenerateSkillsProfile } from "../apiHelpers";
 
 export default function Interests () {
     const [hobbies, setHobbies] = useState([]);
@@ -20,7 +20,6 @@ export default function Interests () {
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
-    const skills = useSelector((state) => state.data.skills);
 
     const handleHobbyFormChange = (newHobbies) => {
         setHobbies(newHobbies);
@@ -33,6 +32,17 @@ export default function Interests () {
     const handleRiasecFormChange = (newScores) => {
         setRiasecScores(newScores);
     };
+
+    const skills = useSelector((state) => state.data.skills);
+    const values = useSelector((state) => state.data.values);
+    const careerGeneration = (interests) => {
+      if (skills.length > 0 && Object.keys(values).length > 0) {
+        dispatch(updateCareers({}));
+        GenerateCareers(interests, skills, values, dispatch);
+      }
+    }
+
+
 
     const handleSubmit = () => {
         dispatch(updateInterestProfile({}));
@@ -52,14 +62,17 @@ export default function Interests () {
               }
             });
         });
-        console.log('Hobbies submitted:', hobbies);
-        console.log('Subjects submitted:', subjects);
-        console.log('Scores:', mappedScores);
+
         dispatch(completeInterests({'Hobbies': hobbies, 'Subjects': subjects, 'Scores': mappedScores}));
+
         GenerateInterestProfile({'Hobbies': hobbies, 'Subjects': subjects, 'RIASEC Assessment': mappedScores}, dispatch);
         if (skills.length > 0) {
-          GenerateSkillsProfile(skills, {'Hobbies': hobbies, 'Subjects': subjects, 'RIASEC Assessment': mappedScores}, dispatch)
+          dispatch(updateSkillsProfile({}));
+          GenerateSkillsProfile(skills, {'Hobbies': hobbies, 'Subjects': subjects, 'RIASEC Assessment': mappedScores}, dispatch);
         }
+
+        careerGeneration({'Hobbies': hobbies, 'Subjects': subjects, 'Scores': mappedScores});
+
         navigate('/');
     };
 

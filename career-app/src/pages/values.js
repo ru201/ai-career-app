@@ -4,10 +4,10 @@ import Header from '../components/header';
 import Navbar from  '../components/navbar';
 import RatingValueForm from '../components/ratingvalueform';
 import { Box, Button } from '@mui/material';
-import { useDispatch } from 'react-redux';
-import { completeValues, updateValuesProfile } from '../dataSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { completeValues, updateCareers, updateValuesProfile } from '../dataSlice';
 import { useNavigate } from "react-router-dom";
-import { GenerateValuesProfile } from "../helpers";
+import { GenerateCareers, GenerateValuesProfile } from "../apiHelpers";
 
 export default function Values () {
 
@@ -20,6 +20,16 @@ export default function Values () {
   const handleChange = (newValues) => {
       setValues(newValues)
   };
+
+  // Generate careers if all data has been filled
+  const interests = useSelector((state) => state.data.interests);
+  const skills = useSelector((state) => state.data.skills);
+  const careerGeneration = (values) => {
+    if (Object.keys(interests).length > 0 && skills.length > 0) {
+      dispatch(updateCareers({}));
+      GenerateCareers(interests, skills, values, dispatch);
+    }
+  }
 
   const handleSubmit = () => {
       // Change Values
@@ -41,6 +51,7 @@ export default function Values () {
       console.log(mappedValues);
       dispatch(completeValues(mappedValues));
       GenerateValuesProfile(mappedValues, dispatch);
+      careerGeneration(mappedValues);
       navigate('/');
   }
 

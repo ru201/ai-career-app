@@ -2,22 +2,13 @@ import React from "react";
 import '../App.css';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { GenerateCareers } from "../helpers";
+import { useSelector } from 'react-redux';
 
 export default function Activities() {
 
     const interestsComplete = useSelector((state) => state.data.interestsComplete);
     const valuesComplete = useSelector((state) => state.data.valuesComplete);
     const skillsComplete = useSelector((state) => state.data.skillsComplete);
-
-    // For generating careers
-    const interests = useSelector((state) => state.data.interests);
-    const values = useSelector((state) => state.data.values);
-    const skills = useSelector((state) => state.data.skills);
-    const careers = useSelector((state) => state.data.careers);
-    const dispatch = useDispatch();
-    const dataFilled = Object.keys(interests).length > 0 && Object.keys(values).length > 0 && skills.length > 0;
 
     const navigate = useNavigate();
 
@@ -28,10 +19,6 @@ export default function Activities() {
     const allActivitiesComplete = interestsComplete && valuesComplete && skillsComplete;
 
     console.log('interestsComplete: ', interestsComplete, 'valuesComplete: ', valuesComplete, 'skillsComplete: ', skillsComplete);
-
-    if (allActivitiesComplete && dataFilled && Object.keys(careers).length === 0) {
-        GenerateCareers(interests, skills, values, dispatch);
-    }
 
     const handleUnlock = () => {
         navigate('/profile');

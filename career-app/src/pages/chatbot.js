@@ -5,9 +5,8 @@ import Navbar from '../components/navbar';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.css';
 import { MainContainer, ChatContainer, MessageInput, TypingIndicator, MessageList, Message } from '@chatscope/chat-ui-kit-react';
 import { useSelector } from 'react-redux';
-import OpenAI from "openai";
+import { GenerateMessage } from "../apiHelpers";
 
-const openai = new OpenAI({ apiKey: process.env.REACT_APP_API_KEY, dangerouslyAllowBrowser: true });
 
 export default function Chatbot() {
   const interests = useSelector((state) => state.data.interests);
@@ -63,23 +62,20 @@ export default function Chatbot() {
       }
     ];
 
-    await openai.chat.completions.create({
-      messages: [
-        ...systemMessage,
-        ...apiMessages
-      ],
-      model: "gpt-4o-mini"
-    }).then((data) => {
-      console.log(data)
-      setMessages(
-        [...chatMessages, {
-          message: `${data.choices[0].message.content}`,
-          sender: "ChatGPT",
-          direction: "incoming"
-        }]
-      );
-      setTyping(false);
-    }); 
+
+    const response = await GenerateMessage([...systemMessage, ...apiMessages]);
+
+    console.log(response);
+
+    setMessages(
+      [...chatMessages, {
+        message: response,
+        sender: "ChatGPT",
+        direction: "incoming"
+      }]
+    )
+
+    setTyping(false);
 
   }
 

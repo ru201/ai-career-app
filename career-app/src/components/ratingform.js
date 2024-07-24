@@ -31,7 +31,7 @@ const RatingForm = ({ onChange, questions }) => {
                 <Typography sx={{ color: '#1976D2', fontWeight: 600, mb: 1 }}>{question}</Typography>
                 <FormControl component="fieldset">
                   <RadioGroup
-                    column
+                    column="true"
                     value={scores[category][index]}
                     onChange={(event) => handleRadioChange(category, index, Number(event.target.value))}
                     sx={{mb: 2}}

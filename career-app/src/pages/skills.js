@@ -4,9 +4,9 @@ import Header from '../components/header';
 import Navbar from  '../components/navbar';
 import Quiz from '../components/quiz';
 import { useDispatch, useSelector } from 'react-redux';
-import { completeSkills, updateSkillsProfile } from '../dataSlice';
+import { completeSkills, updateCareers, updateSkillsProfile } from '../dataSlice';
 import { useNavigate } from "react-router-dom";
-import { GenerateSkillsProfile } from "../helpers";
+import { GenerateCareers, GenerateSkillsProfile } from "../apiHelpers";
 
 export default function Skills () {
 
@@ -15,7 +15,16 @@ export default function Skills () {
     const navigate = useNavigate();
     
     const dispatch = useDispatch();
+
+    // Generate careeers if all data has been filled.
     const interests = useSelector((state) => state.data.interests);
+    const values = useSelector((state) => state.data.values);
+    const careerGeneration = (skills) => {
+        if (Object.keys(interests).length > 0 && Object.keys(values).length > 0) {
+            dispatch(updateCareers({}));
+            GenerateCareers(interests, skills, values, dispatch);
+        }
+    }
 
     const handleSubmit = (newSkills) => {
         dispatch(updateSkillsProfile({}));
@@ -23,6 +32,7 @@ export default function Skills () {
         console.log(selectedSkills);
         dispatch(completeSkills(newSkills));
         GenerateSkillsProfile(newSkills, interests, dispatch);
+        careerGeneration(newSkills);
         navigate('/');
     }
 
