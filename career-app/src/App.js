@@ -13,7 +13,7 @@ import Chatbot from './pages/chatbot';
 import Subjects from './pages/subjects';
 import Career from './pages/career';
 import { Provider } from 'react-redux';
-import { store, persistor } from './store';
+import { store } from './store';
 // import { PersistGate } from 'redux-persist/integration/react';
 
 function App() {
