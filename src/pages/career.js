@@ -37,7 +37,7 @@ export default function Career () {
                     <h2>Recommended Qualifications</h2>
                     <p>{careers[careerTitle]['education-level']}</p>
                     <h2>Weekly Pay</h2>
-                    <p style={{fontSize: '1.2em'}}>{careers[careerTitle]['weekly-pay']}</p>
+                    <p style={{fontSize: '0.9em'}}>{careers[careerTitle]['weekly-pay']}</p>
                     <p>{careers[careerTitle]['pay-rating']}</p>
                     <h2>Main Tasks</h2>
                     <ul>
@@ -46,7 +46,7 @@ export default function Career () {
                         }
                     </ul>
                     <h2>Future Growth</h2>
-                    <p style={{fontSize: '1.2em'}}>{careers[careerTitle]['future-growth']}%</p>
+                    <p style={{fontSize: '0.9em'}}>{careers[careerTitle]['future-growth']}%</p>
                     <p>Projected employment growth rate in the next 5 years. {careers[careerTitle]['growth-rating']}</p>
                     <h2>Related Careers</h2>
                     <ul>

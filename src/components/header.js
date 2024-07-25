@@ -25,7 +25,7 @@ export default function Header () {
                     }
                 }}
             >
-                <PersonIcon />
+                <PersonIcon fontSize="small" />
             </IconButton>
         </div>
     );

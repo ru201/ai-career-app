@@ -105,18 +105,18 @@ export default function Values () {
           <Header />
           <div className="main bottom-margin">
               <div className="inner-content">
-                  <h1 style={{marginBottom: '40px'}}>Career Values</h1>
-                  <p style={{marginBottom: '30px'}}>Your career values are what you find important and gain satisfaction from at work. <br /><br /> Identifying and understanding your career values can help you explore more suitable career options. <br /><br /> Let's find out what values are important to you. Select how important you find each item below.</p>
+                  <h1>Career Values</h1>
+                  <p>Your career values are what you find important and gain satisfaction from at work. <br /><br /> Identifying and understanding your career values can help you explore more suitable career options. <br /><br /> Let's find out what values are important to you. Select how important you find each item below.</p>
                   <RatingValueForm onChange={handleChange} questions={questions} />
                   <Box
                       sx={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
                       }}
                   >
-                      <Button variant="contained" color="primary" onClick={handleSubmit}>
-                      Submit
+                      <Button sx={{fontSize: '0.7em', width: 0.6}} variant="contained" color="primary" onClick={handleSubmit}>
+                        Submit
                       </Button>
                   </Box>               
               </div>

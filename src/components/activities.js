@@ -12,8 +12,8 @@ export default function Activities() {
 
     const navigate = useNavigate();
 
-    const buttonStyle = { width: '230px', borderRadius: 3 };
-    const completeButtonStyle = { width: '230px', borderRadius: 3, backgroundColor: '#33B249', '&:hover': {backgroundColor: '#2CA740'} };
+    const buttonStyle = { width: 0.6, borderRadius: 3, fontSize: '0.55em' };
+    const completeButtonStyle = { width: 0.6, borderRadius: 3, fontSize: '0.55em', backgroundColor: '#33B249', '&:hover': {backgroundColor: '#2CA740'} };
 
     // Check if all activities are completed
     const allActivitiesComplete = interestsComplete && valuesComplete && skillsComplete;

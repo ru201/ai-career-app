@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
+import { Typography, Button, TextField, Box } from '@mui/material';
 
 const SubjectForm = ({ onChange }) => {
   const [subjects, setSubjects] = useState(['']);
@@ -20,22 +18,24 @@ const SubjectForm = ({ onChange }) => {
   };
 
   return (
-    <div style={{ marginTop: '40px' }}>
+    <div style={{ marginTop: '1em' }}>
       <h2>Enter Your Favourite School Subjects</h2>
-      <Box component="form" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 2 }}>
+      <Box component="form" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {subjects.map((subject, index) => (
           <TextField
             key={index}
             type="text"
             value={subject}
             onChange={(e) => handleSubjectChange(index, e)}
-            label={`Subject ${index + 1}`}
+            label={<Typography sx={{fontSize: '0.7em' }}>Subject {index + 1}</Typography>}
             variant="outlined"
             margin="normal"
-            sx={{ width: '95%', marginRight: '17px' }}
+            sx={{ width: '100%'}}
+            InputProps={{ sx: { height: '2em' }}}
+            size='small'
           />
         ))}
-        <Button type="button" onClick={handleAddSubject} variant="contained" sx={{ mb: 2, mt: 2 }}>
+        <Button type="button" onClick={handleAddSubject} variant="contained" sx={{ mb: 2, mt: 2, width: 0.7, fontSize: '0.6em' }}>
           Add Another Subject
         </Button>
       </Box>

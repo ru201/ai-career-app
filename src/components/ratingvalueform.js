@@ -18,28 +18,33 @@ const RatingValueForm = ({ onChange, questions }) => {
       onChange(newScores); // Notify the parent component about the change
     };
 
-    const style = { '&:hover': { backgroundColor: 'transparent' } };
+    const style = { 
+        '&:hover': { backgroundColor: 'transparent' }, 
+        '& .MuiSvgIcon-root': {
+            fontSize: '1em',
+        } 
+    };
 
     return (
-        <div style={{ marginTop: '40px' }}>
-        <Box sx={{mt: 4}}>
+        <div style={{ marginTop: '1.5em' }}>
+        <Box>
             {Object.keys(questions).map(category => (
             <Box key={category}>
                 {questions[category].map((question, index) => (
-                <Box key={index} mb={2}>
-                    <Typography sx={{ color: '#1976D2', fontWeight: 600, mb: 1 }}>{question}</Typography>
+                <Box key={index} mb={1}>
+                    <Typography sx={{ color: '#1976D2', fontWeight: 600, mb: 1, fontSize:'0.7em' }}>{question}</Typography>
                     <FormControl component="fieldset">
-                    <RadioGroup
-                        column="true"
-                        value={scores[category][index]}
-                        onChange={(event) => handleRadioChange(category, index, Number(event.target.value))}
-                        sx={{mb: 2}}
-                    >
-                        <FormControlLabel value={4} control={<Radio sx={style} />} label="Very Important" />
-                        <FormControlLabel value={3} control={<Radio sx={style} />} label="Important" />
-                        <FormControlLabel value={2} control={<Radio sx={style} />} label="Neutral" />
-                        <FormControlLabel value={1} control={<Radio sx={style} />} label="Not  Important" />
-                    </RadioGroup>
+                        <RadioGroup
+                            column="true"
+                            value={scores[category][index]}
+                            onChange={(event) => handleRadioChange(category, index, Number(event.target.value))}
+                            sx={{mb: 1, ml: 1}}
+                        >
+                            <FormControlLabel value={4} control={<Radio sx={style} />} label={<Typography sx={{ fontSize:'0.7em' }}>Very Important</Typography>} />
+                            <FormControlLabel value={3} control={<Radio sx={style} />} label={<Typography sx={{ fontSize:'0.7em' }}>Important</Typography>} />
+                            <FormControlLabel value={2} control={<Radio sx={style} />} label={<Typography sx={{ fontSize:'0.7em' }}> Neutral</Typography>} />
+                            <FormControlLabel value={1} control={<Radio sx={style} />} label={<Typography sx={{ fontSize:'0.7em' }}>Not Important</Typography>} />
+                        </RadioGroup>
                     </FormControl>
                 </Box>
                 ))}

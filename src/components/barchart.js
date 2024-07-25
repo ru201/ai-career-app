@@ -29,10 +29,9 @@ const HorizontalBarChart = ({ chartData, handleSelect }) => {
           layout="vertical"
           data={chartData}
           margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
+            top: 5,
+            right: 10,
+            left: 20
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />

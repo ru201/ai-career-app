@@ -41,28 +41,28 @@ export default function Navbar () {
                 onClick={handleClickHome}
                 sx={iconButtonStyle}
             >
-                <HomeIcon />
+                <HomeIcon fontSize="small" />
             </IconButton>
             <IconButton
                 aria-label="profile"
                 onClick={handleClickProfile}
                 sx={iconButtonStyle}
             >
-                <AutoGraphIcon />
+                <AutoGraphIcon fontSize="small" />
             </IconButton>
             <IconButton
                 aria-label="careers"
                 onClick={handleClickCareers}
                 sx={iconButtonStyle}
             >
-                <WorkIcon />
+                <WorkIcon fontSize="small" />
             </IconButton>
             <IconButton
                 aria-label="chat"
                 onClick={handleClickChat}
                 sx={iconButtonStyle}
             >
-                <ChatIcon />
+                <ChatIcon fontSize="small" />
             </IconButton>
         </div>
     );

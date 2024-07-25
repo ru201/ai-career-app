@@ -83,16 +83,16 @@ export default function Chatbot() {
     <div id='chatbot' className='base'>
       <Header />
       <div className="main">
-        <MainContainer>
+        <MainContainer style={{padding: '0 0.2em'}}>
           <ChatContainer>
             <MessageList
               typingIndicator={typing ? <TypingIndicator content="Typing" /> : null}
             >
               {messages.map((message, i) => (
-                <Message key={i} model={{ message: message.message, direction: message.direction, sender: message.sender }} />
+                <Message style={{fontSize: '0.7em'}} key={i} model={{ message: message.message, direction: message.direction, sender: message.sender }} />
               ))}
             </MessageList>
-            <MessageInput placeholder='Type message here' onSend={handleSend} attachButton={false} />
+            <MessageInput style={{fontSize: '0.7em'}} placeholder='Type message here' onSend={handleSend} attachButton={false} />
           </ChatContainer>
         </MainContainer>
       </div>

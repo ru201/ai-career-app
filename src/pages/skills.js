@@ -110,8 +110,8 @@ export default function Skills () {
             <Header />
             <div className="main bottom-margin">
                 <div className="inner-content">
-                    <h1 style={{marginBottom: '40px'}}>Skills Discovery</h1>
-                    <p style={{marginBottom: '30px'}}>Considering what you are skilled at is a great way to find careers that match your skillsets and can improve career decision making. <br /><br /> Select the option that you are most skilled at from the 21 choices below.</p>
+                    <h1 style={{marginBottom: '1em'}}>Skills Discovery</h1>
+                    <p style={{marginBottom: '2em'}}>Considering what you are skilled at is a great way to find careers that match your skillsets and can improve career decision making. <br /><br /> Select the option that you are most skilled at from the 21 choices below.</p>
                     <Quiz options={options} images={images} handleSubmit={handleSubmit} />
                 </div>
             </div>

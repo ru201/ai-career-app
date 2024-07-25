@@ -130,7 +130,7 @@ export default function Interests () {
                     <p>Identifying and understanding your interests is a great starting point for building the self-awareness needed for career decision making.<br /><br />Complete the activities below to help us understand your interests.</p>
                     <HobbyForm onChange={handleHobbyFormChange} />
                     <SubjectForm onChange={handleSubjectFormChange} />
-                    <h2 style={{marginTop: '40px'}}>Interests Assessment</h2>
+                    <h2 style={{marginTop: '1.5em'}}>Interests Assessment</h2>
                     <p>For each statement below select how well you agree with it.</p>
                     <RatingForm questions={questions} onChange={handleRiasecFormChange} />
                     <Box
@@ -140,7 +140,7 @@ export default function Interests () {
                         alignItems: 'center',
                         }}
                     >
-                        <Button variant="contained" color="primary" onClick={handleSubmit}>
+                        <Button sx={{fontSize: '0.7em', width: 0.5}} variant="contained" color="primary" onClick={handleSubmit}>
                         Submit
                         </Button>
                     </Box>

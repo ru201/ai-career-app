@@ -17,7 +17,7 @@ const ValuesChart = ({ chartData, handleSelect }) => {
                     fill="#666666"
                     textAnchor={x > cx ? 'start' : 'end'}
                     dominantBaseline="central"
-                    style={{ fontSize: 12, cursor: 'pointer' }}
+                    style={{ fontSize: 10, cursor: 'pointer' }}
                 >
                     {name}
                 </text>
@@ -48,14 +48,14 @@ const ValuesChart = ({ chartData, handleSelect }) => {
     return (
         <div className='chart-container'>
             <ResponsiveContainer width="100%" height="100%">
-                <PieChart width={300} height={200}>
+                <PieChart>
                     <Pie
                         dataKey="score"
                         isAnimationActive={false}
                         data={chartData}
                         cx="50%"
                         cy="50%"
-                        outerRadius={50}
+                        outerRadius={40}
                         label={renderCustomizedLabel}
                         labelLine={renderCustomizedLabelLine}
                     >

@@ -8,7 +8,7 @@ const QuizOption = ({ text, imageUrl, onClick, selected }) => (
         color="primary"
         fullWidth
         sx={{
-            height: 250, // Ensure all buttons have the same height
+            height: '12em', // Ensure all buttons have the same height
             width: '100%', // Ensure all buttons have the same width
             display: 'flex',
             flexDirection: 'column',
@@ -18,8 +18,8 @@ const QuizOption = ({ text, imageUrl, onClick, selected }) => (
             backgroundColor: selected ? 'primary.light' : 'background.paper',
         }}
     >
-        <img src={imageUrl} alt={text} style={{ width: '100%', marginBottom: 10 }} />
-        <Typography variant="body2" align="center">{text}</Typography>
+        <img src={imageUrl} alt={text} style={{ width: '3.2em', marginBottom: 10 }} />
+        <Typography variant="body2" align="center" sx={{fontSize: '0.7em', textTransform: "capitalize"}}>{text}</Typography>
     </Button>
 );
 
@@ -27,7 +27,7 @@ const QuizBody = ({ handleSubmit, options, onOptionSelect, selectedOptions, imag
     <Container maxWidth="md">
         {options.map((pair, index) => (
             <Grid container spacing={2} alignItems="center" justifyContent="center" key={index} sx={{ marginBottom: 4 }}>
-                <Grid item xs={12} md={5}>
+                <Grid item xs={12} md={5} sx={{ textAlign: 'center' }}>
                     <QuizOption
                         text={pair[0]}
                         imageUrl={images[pair[0]]}
@@ -36,7 +36,7 @@ const QuizBody = ({ handleSubmit, options, onOptionSelect, selectedOptions, imag
                     />
                 </Grid>
                 <Grid item xs={12} md={2} sx={{ textAlign: 'center' }}>
-                    <Typography variant="body1" align="center">or</Typography>
+                    <Typography variant="body1" align="center" sx={{fontSize: '0.7em'}}>or</Typography>
                 </Grid>
                 <Grid item xs={12} md={5}>
                     <QuizOption
@@ -49,7 +49,7 @@ const QuizBody = ({ handleSubmit, options, onOptionSelect, selectedOptions, imag
             </Grid>
         ))}
         <Box display="flex" justifyContent="center" mt={4}>
-            <Button variant="contained" onClick={() => handleSubmit(Object.keys(selectedOptions).map(index => options[index][selectedOptions[index]]))}>
+            <Button variant="contained" sx={{fontSize: '0.7em', width: 0.8}} onClick={() => handleSubmit(Object.keys(selectedOptions).map(index => options[index][selectedOptions[index]]))}>
                 Complete Activity
             </Button>
         </Box>

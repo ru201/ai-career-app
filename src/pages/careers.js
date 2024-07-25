@@ -20,14 +20,15 @@ export default function Careers () {
     const allActivitiesComplete = interestsComplete && valuesComplete && skillsComplete;
 
     const buttonStyle = { 
-        width: '250px', 
-        paddingTop: 2,
-        paddingBottom: 2,
+        width: 0.8, 
+        paddingTop: 1.3,
+        paddingBottom: 1.3,
         borderRadius: 3, 
         textTransform: 'capitalize', 
         backgroundColor: '#EFEEFD', 
         color: 'black', 
         fontWeight: 'normal',
+        fontSize: '0.7em',
         '&:hover': { backgroundColor: '#B0AEE0' }, 
     };
 

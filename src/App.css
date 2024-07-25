@@ -8,8 +8,8 @@ html, body {
 
 .base {
   /* display: flex; */
-  width: 400px;
-  height: 696px;
+  width: 300px;
+  height: 450px;
   background-color: #FFFFFF;
   /* justify-content: center;
   align-items: center; */
@@ -17,24 +17,21 @@ html, body {
 }
 
 .header {
-  padding: 5px;
-  margin-left: 22px;
-  margin-right: 20px;
-  margin-top: 5px;
+  margin: 0.2em 1.5em;
   display: flex;
   justify-content: space-between;
   height: fit-content;
 }
 
 .app-name {
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: normal;
   color: 	#0E4C92;
 }
 
 .main {
-  height: 75%;
-  max-height: 600px;
+  height: 76%;
+  max-height: 400px;
   width: 100%;
   background-color: transparent;
   overflow: scroll;
@@ -44,29 +41,31 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 19px 22px;
+  margin: 0 1.4em;
+  margin-top: 0.4em;
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 1em;
   color: 	#0E4C92;
+  margin: 0;
 }
 
 h2 {
-  font-size: 1.1em;
+  font-size: 0.8em;
 }
 
 h3 {
-  font-size: 1em;
+  font-size: 0.7em;
 }
 
 .home-msg {
-  margin: 0 26px
+  margin: 0 1.5em
 }
 
 .inner-content {
   height: 100%;
-  margin: 0 26px;
+  margin: 0 1.5em;
   padding-right: 8px;
   overflow: scroll;
 }
@@ -75,32 +74,45 @@ h3 {
   margin-bottom: 0px;
 }
 
+ul, ol {
+  font-size: 0.7em;
+  padding-left: 1.5em;
+}
+
 .activities {
   height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
-  margin-top: 33px;
+  gap: 1.6em;
+  margin-top: 1.4em;
+}
+
+p {
+  font-size: 0.7em;
 }
 
 /*Chatbot CSS*/
 div .cs-message-list__typing-indicator-container div {
   color: rgb(163, 163, 163);
+  font-size: '0.7em';
 }
 
 div .cs-main-container,
 div .cs-chat-container .cs-message-input {
   border: 0px;
+  font-size: '0.7em';
 }
 
 div .cs-chat-container .cs-message-input {
   background-color: #FFFFFF;
+  font-size: '0.7em';
 }
 
 div .cs-message--incoming .cs-message__content {
   background-color: #EAEBED;
+  font-size: '0.7em';
 }
 
 
@@ -108,25 +120,30 @@ div .ps__thumb-y,
 div .ps__rail-y:hover .ps__thumb-y,
 div .ps__rail-y:active .ps__thumb-y {
   background-color: #C6E3FA;
+  font-size: '0.7em';
 }
 
 div .cs-message-input__content-editor,
 div .cs-message-input__content-editor-wrapper
 {
   background-color: #EAEBED;
+  font-size: '0.7em';
 }
 
 div .cs-message-list
 {
   background-color: #ffffff;
+  font-size: '0.7em';
 }
 
 div .cs-message--outgoing .cs-message__content {
   background-color: #C6E3FA; 
+  font-size: '0.7em';
 }
 
 div .cs-typing-indicator__dot {
   background-color: rgb(163, 163, 163);
+  font-size: '0.7em';
 }
 
 /* Hobbies Form */
@@ -152,8 +169,7 @@ button {
 .chart-container {
   width: 100%;
   max-width: 400px;  
-  height: 200px;  
-  margin: 0 10px 0 0;
+  height: 10em;  
 }
 
 .score-box {
@@ -162,23 +178,24 @@ button {
   margin-right: 0px;
 }
 
+.profile-text {
+  margin-bottom: 1.5em;
+}
+
 .description-container {
   width: 100%;
   max-width: 400px;  
   height: fit-content;  
-  margin: 0 10px 50px 0;
-}
-
-.smaller-text {
-  font-size: 0.9em;
+  margin: 0 0 2em 0;
 }
 
 .career-buttons {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 2em;
   align-items: center;
   padding-bottom: 10px;
+  margin-top: 1.5em;
 }
 
 .related-jobs-list {
