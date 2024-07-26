@@ -27,11 +27,11 @@ const SubjectForm = ({ onChange }) => {
             type="text"
             value={subject}
             onChange={(e) => handleSubjectChange(index, e)}
-            label={<Typography sx={{fontSize: '0.7em' }}>Subject {index + 1}</Typography>}
+            label={<Typography sx={{fontSize: '0.7em', paddingRight: '1em'}}>Subject {index + 1}</Typography>}
             variant="outlined"
             margin="normal"
             sx={{ width: '100%'}}
-            InputProps={{ sx: { height: '2em' }}}
+            InputProps={{ sx: { fontSize: '0.7em' }}}
             size='small'
           />
         ))}

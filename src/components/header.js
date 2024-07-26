@@ -12,6 +12,10 @@ export default function Header () {
         navigate('/');
     };
 
+    const style = {
+        width: '0.7em'
+    };
+
     return (
         <div className='header'>
             <h3 className='app-name'>myfuture</h3>
@@ -25,7 +29,7 @@ export default function Header () {
                     }
                 }}
             >
-                <PersonIcon fontSize="small" />
+                <PersonIcon sx={style} />
             </IconButton>
         </div>
     );

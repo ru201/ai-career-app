@@ -34,6 +34,10 @@ export default function Navbar () {
         }
     }
 
+    const style = {
+        width: '0.7em'
+    };
+
     return (
         <div className='navbar'>
             <IconButton
@@ -41,28 +45,28 @@ export default function Navbar () {
                 onClick={handleClickHome}
                 sx={iconButtonStyle}
             >
-                <HomeIcon fontSize="small" />
+                <HomeIcon sx={style} />
             </IconButton>
             <IconButton
                 aria-label="profile"
                 onClick={handleClickProfile}
                 sx={iconButtonStyle}
             >
-                <AutoGraphIcon fontSize="small" />
+                <AutoGraphIcon sx={style} />
             </IconButton>
             <IconButton
                 aria-label="careers"
                 onClick={handleClickCareers}
                 sx={iconButtonStyle}
             >
-                <WorkIcon fontSize="small" />
+                <WorkIcon sx={style} />
             </IconButton>
             <IconButton
                 aria-label="chat"
                 onClick={handleClickChat}
                 sx={iconButtonStyle}
             >
-                <ChatIcon fontSize="small" />
+                <ChatIcon sx={style} />
             </IconButton>
         </div>
     );

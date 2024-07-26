@@ -39,14 +39,12 @@ export const GenerateValuesProfile = async (values, dispatch) => {
 export const GenerateCareers = async (interests, skills, values, dispatch) => {
     try {
         const response = await axios.post(`${API_BASE_URL}/generate-careers`, { "interests": interests, "skills": skills, "values": values });
-        console.log(response.data);
         dispatch(updateCareers(response.data));
     } catch (error) {
         console.error('Error generating careers:', error);
         throw error;
     }
 };
- 
 
 export const GenerateMessage = async ( messages ) => {
     try {

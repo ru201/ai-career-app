@@ -1,6 +1,5 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 from openai import OpenAI
 import os
 from os.path import join, dirname
@@ -44,6 +43,7 @@ async def generate_completion(prompt: str) -> dict:
         logging.error(f"Error generating completion: {e}")
         raise HTTPException(status_code=500, detail=str(e))
     
+    
 async def generate_message_completion(messages: list):
     try:
         response = client.chat.completions.create(
@@ -56,9 +56,10 @@ async def generate_message_completion(messages: list):
         logging.error(f"Error generating message completion: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+
 @app.post("/generate-interest-profile")
 async def generate_interest_profile(data: dict):
-    logging.info(f"Received data: {data}")
+    # logging.info(f"Received data: {data}")
     prompt = f"""
     Interests: {data['interests']}
     Based on the interests data object given above, analyze it and only return me a json object that fits the template defined below with no other text. Make sure the descriptions are strings, max 40 words, friendly, engaging, target senior high school students and speak directly to the user. Make sure the keys are exactly the same. Make sure the scores are not strings.
@@ -74,6 +75,7 @@ async def generate_interest_profile(data: dict):
     }}
     """
     response_text = await generate_completion(prompt)
+    logging.info("Interests generated")
     try:
         response_json = json.loads(response_text)
         return response_json
@@ -81,9 +83,10 @@ async def generate_interest_profile(data: dict):
         logging.error(f"Failed to parse JSON response: {response_text}")
         raise HTTPException(status_code=500, detail="Failed to parse JSON response")
 
+
 @app.post("/generate-skills-profile")
 async def generate_skills_profile(data: dict):
-    logging.info(f"Received data: {data}")
+    # logging.info(f"Received data: {data}")
     prompt = f"""
     Skills: {data['skills']}
     Interests: {data['interests']}
@@ -98,15 +101,17 @@ async def generate_skills_profile(data: dict):
     }}
     """
     response_text = await generate_completion(prompt)
+    logging.info("Skills generated")
     try:
         response_json = json.loads(response_text)
         return response_json
     except json.JSONDecodeError:
         raise HTTPException(status_code=500, detail="Failed to parse JSON response")
 
+
 @app.post("/generate-values-profile")
 async def generate_values_profile(data: dict):
-    logging.info(f"Received data: {data}")
+    # logging.info(f"Received data: {data}")
     prompt = f"""
     Values: {data['values']}
     Based on the values data object given above, analyze it and only return me a json object that fits the template defined below with no other text. Make sure the descriptions are strings, max 40 words, friendly, engaging, target senior high school students and speak directly to the user. Make sure the keys are exactly the same. Make sure the scores are not strings.
@@ -119,6 +124,7 @@ async def generate_values_profile(data: dict):
     }}
     """
     response_text = await generate_completion(prompt)
+    logging.info("Values generated")
     try:
         response_json = json.loads(response_text)
         return response_json
@@ -126,30 +132,32 @@ async def generate_values_profile(data: dict):
         logging.error(f"Failed to parse JSON response: {response_text}")
         raise HTTPException(status_code=500, detail="Failed to parse JSON response")
 
+
 @app.post("/generate-careers")
 async def generate_careers(data: dict):
-    logging.info(f"Received data: {data}")
+    # logging.info(f"Received data: {data}")
     prompt = f"""
     Interests: {data['interests']}
     Skills: {data['skills']}
     Values: {data['values']}
-    Only return me a JSON object that contains 10 careers that are best suited to the user based on their interests, skills and values from the data objects given above. The target users are senior high school students. The more suitable the career is, the earlier it should be ordered. Each career should be a JSON object that fits the template defined below. Don't add extra text to the career titles, weekly-pay and future-growth. Do not add extra keys, the object must follow this template: 
+    Only return me a JSON object that contains 5 careers that are best suited to the user based on the provided data. The target users are senior high school students. Sort careers by suitability. Don't add extra text to the career titles, weekly-pay and future-growth. Do not add extra keys, the object must follow this template: 
     {{
         "career title" : {{
             "description": "A two to three sentence description of the career.",
             "education-level": "The education level or experience required for the career.",
-            "weekly-pay": "The average weekly pay for the career in Australia given in Australian Dollar in the format decimal number with only a dollar sign in front. For example: $1, 200",
+            "weekly-pay": "The average weekly pay for the career in Australia given in Australian Dollar in the format decimal number with only a dollar sign in front. For example: $1,200",
             "pay-rating": "One sentence saying whether the weekly pay is higher, on par or lower compared to the average weekly pay in Australia. For example: "Higher than the average weekly pay in Australia.",
             "future-growth": "The estimated future employment growth rate of the career in the next five years given as either an integer or rounded to two decimal places. No other text.",
             "growth-rating": "One sentence indicating whether the future growth rate provided is very strong, strong, moderate, slow or declining. Also provide reasons as to why."
-            "main-tasks": "An array of the five main tasks performed as part of the career.",
-            "related-careers": "An array of two to five career titles that are considered to be types of the career or related to it.",
-            "links": "An array of up to three reputable web links to resources related to the career and pursuing the career in Australia. No news links." 
+            "main-tasks": "An array of five main tasks performed as part of the career.",
+            "related-careers": "An array of up to five related careers."
+            "links": "An array of two reputable Australian web links to resources related to pursuing the career. No news links." 
         }},
         ...
     }}
     """
     response_text = await generate_completion(prompt)
+    logging.info("Careers generated")
     try:
         response_json = json.loads(response_text)
         return response_json
@@ -160,12 +168,11 @@ async def generate_careers(data: dict):
 
 @app.post("/generate-message")
 async def generate_message(data: dict):
-    logging.info(f"Received data: {data}")
+    # logging.info(f"Received data: {data}")
     
     response_text = await generate_message_completion(data['messages'])
     
     return response_text
-    
 
 if __name__ == "__main__":
     import uvicorn

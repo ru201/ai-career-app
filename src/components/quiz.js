@@ -10,6 +10,7 @@ const QuizOption = ({ text, imageUrl, onClick, selected }) => (
         sx={{
             height: '12em', // Ensure all buttons have the same height
             width: '100%', // Ensure all buttons have the same width
+            maxWidth: '20em', // Added maxWidth to control the maximum width
             display: 'flex',
             flexDirection: 'column',
             padding: 2,
@@ -19,7 +20,7 @@ const QuizOption = ({ text, imageUrl, onClick, selected }) => (
         }}
     >
         <img src={imageUrl} alt={text} style={{ width: '3.2em', marginBottom: 10 }} />
-        <Typography variant="body2" align="center" sx={{fontSize: '0.7em', textTransform: "capitalize"}}>{text}</Typography>
+        <Typography variant="body2" align="center" sx={{ fontSize: '0.7em', textTransform: "capitalize" }}>{text}</Typography>
     </Button>
 );
 
@@ -27,7 +28,7 @@ const QuizBody = ({ handleSubmit, options, onOptionSelect, selectedOptions, imag
     <Container maxWidth="md">
         {options.map((pair, index) => (
             <Grid container spacing={2} alignItems="center" justifyContent="center" key={index} sx={{ marginBottom: 4 }}>
-                <Grid item xs={12} md={5} sx={{ textAlign: 'center' }}>
+                <Grid item xs={12} sm={5.2} sx={{ textAlign: 'center' }}> {/* Adjusted sm breakpoint */}
                     <QuizOption
                         text={pair[0]}
                         imageUrl={images[pair[0]]}
@@ -35,10 +36,10 @@ const QuizBody = ({ handleSubmit, options, onOptionSelect, selectedOptions, imag
                         selected={selectedOptions[index] === 0}
                     />
                 </Grid>
-                <Grid item xs={12} md={2} sx={{ textAlign: 'center' }}>
-                    <Typography variant="body1" align="center" sx={{fontSize: '0.7em'}}>or</Typography>
+                <Grid item xs={12} sm={1.5} sx={{ textAlign: 'center' }}> {/* Adjusted sm breakpoint */}
+                    <Typography variant="body1" align="center" sx={{ fontSize: '0.7em' }}>or</Typography>
                 </Grid>
-                <Grid item xs={12} md={5}>
+                <Grid item xs={12} sm={5.2} sx={{ textAlign: 'center' }}> {/* Adjusted sm breakpoint */}
                     <QuizOption
                         text={pair[1]}
                         imageUrl={images[pair[1]]}
@@ -49,7 +50,7 @@ const QuizBody = ({ handleSubmit, options, onOptionSelect, selectedOptions, imag
             </Grid>
         ))}
         <Box display="flex" justifyContent="center" mt={4}>
-            <Button variant="contained" sx={{fontSize: '0.7em', width: 0.8}} onClick={() => handleSubmit(Object.keys(selectedOptions).map(index => options[index][selectedOptions[index]]))}>
+            <Button variant="contained" sx={{ fontSize: '0.7em', width: '80%' }} onClick={() => handleSubmit(Object.keys(selectedOptions).map(index => options[index][selectedOptions[index]]))}>
                 Complete Activity
             </Button>
         </Box>
@@ -65,7 +66,6 @@ const Quiz = ({ options, images, handleSubmit }) => {
             [questionIndex]: optionIndex
         }));
     };
-
 
     return (
         <QuizBody
