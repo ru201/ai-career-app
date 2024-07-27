@@ -1,7 +1,7 @@
 import { updateInterestProfile, updateSkillsProfile, updateValuesProfile, updateCareers } from './dataSlice';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://openai-api-server-a8416b8f4972.herokuapp.com';
+const API_BASE_URL = 'https://protected-stream-72014-fbe82cb3d238.herokuapp.com';
 
 export const GenerateInterestProfile = async (interests, dispatch) => {
     try {
