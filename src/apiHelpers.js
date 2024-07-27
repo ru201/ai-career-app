@@ -1,7 +1,7 @@
 import { updateInterestProfile, updateSkillsProfile, updateValuesProfile, updateCareers } from './dataSlice';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://127.0.0.1:8000'; // Replace with your backend server URL
+const API_BASE_URL = 'https://openai-api-server-a8416b8f4972.herokuapp.com/';
 
 export const GenerateInterestProfile = async (interests, dispatch) => {
     try {
