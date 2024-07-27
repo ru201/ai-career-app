@@ -15,10 +15,15 @@ app = FastAPI()
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
+# Update with your Netlify domain
+origins = [
+    "https://findmyfuture.netlify.app",
+]
+
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins, adjust in production
+    allow_origins=origins,  # Allows all origins, adjust in production
     allow_credentials=True,
     allow_methods=["*"],  # Allows all methods (GET, POST, etc.)
     allow_headers=["*"],  # Allows all headers
