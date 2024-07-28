@@ -18,7 +18,7 @@ load_dotenv(dotenv_path)
 # Update with your Netlify domain
 origins = [
     "https://findmyfuture.netlify.app",
-    # "http://localhost:3000"
+    "http://localhost:3000"
 ]
 
 # Configure CORS

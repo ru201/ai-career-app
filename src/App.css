@@ -15,10 +15,12 @@ html, body {
   align-items: center; */
   border: 1px solid #ccc;
 
-  /* width: 30vw;
+  /* Increase Size
+  width: 30vw;
   max-width: 480px;
-  min-width: 242px;
-  height: 99vh; */
+  min-width: 300px;
+  height: 70vh;
+ */
 }
 
 .main {
@@ -27,6 +29,7 @@ html, body {
   background-color: transparent;
   overflow: scroll;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .header {
