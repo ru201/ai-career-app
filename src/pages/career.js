@@ -47,7 +47,7 @@ export default function Career () {
                     </ul>
                     <h2>Future Growth</h2>
                     <p style={{fontSize: '0.9em'}}>{careers[careerTitle]['future-growth']}%</p>
-                    <p>Projected employment growth rate in the next 5 years. {careers[careerTitle]['growth-rating']}</p>
+                    <p>Projected employment growth rate in the next 5 years. <br /><br /> {careers[careerTitle]['growth-rating']}</p>
                     <h2>Related Careers</h2>
                     <ul>
                         {

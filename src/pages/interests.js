@@ -127,7 +127,11 @@ export default function Interests () {
             <div className="main bottom-margin">
                 <div className="inner-content">
                     <h1>Interest Discovery</h1>
-                    <p>Identifying and understanding your interests is a great starting point for building the self-awareness needed for career decision making.<br /><br />Complete the activities below to help us understand your interests.</p>
+                    <p>Identifying and understanding your interests is a great starting point for building the self-awareness needed for career decision making.
+                    <br /><br />
+                    <span className="color-text">Complete the activities below to help us understand your interests.</span>
+                    <br /><br />
+                    If you find yourself unsure about a certain interest, try getting an opinion from someone you trust and assess whether it reflects your experiences.</p> 
                     <HobbyForm onChange={handleHobbyFormChange} />
                     <SubjectForm onChange={handleSubjectFormChange} />
                     <h2 style={{marginTop: '1.5em'}}>Interests Assessment</h2>

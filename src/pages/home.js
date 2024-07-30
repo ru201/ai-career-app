@@ -18,7 +18,7 @@ export default function Home () {
                         Let's find your perfect career
                     </h2>
                     <p>
-                        Complete the activities below to unlock your career recommendations and interests profile, then start a conversation with our friendly career advisor chatbot for personalised advice.
+                        Complete the activities below to unlock your career recommendations and interests profile, then start a conversation with our friendly chat assistant for personalised advice.
                     </p>
                 </div>
                 <Activities />

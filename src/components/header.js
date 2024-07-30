@@ -18,7 +18,7 @@ export default function Header () {
 
     return (
         <div className='header'>
-            <h3 className='app-name'>myfuture</h3>
+            <h3 className='app-name'>findmyfuture</h3>
             <IconButton
                 aria-label="chat"
                 onClick={handleClick}

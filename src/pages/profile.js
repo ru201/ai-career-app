@@ -7,6 +7,7 @@ import BarChart from "../components/barchart";
 import ValuesChart from "../components/valueschart";
 import SkillsChart from "../components/skillschart";
 import ProfileDescription from "../components/profiledescription";
+import NavButton from "../components/navButton"
 
 export default function Profile () {
     
@@ -78,6 +79,12 @@ export default function Profile () {
 
     const profileLoaded = skills.hasOwnProperty(selectedSkill) && interests.hasOwnProperty(selectedInterest) && values.hasOwnProperty(selectedValue);
 
+    const buttonStyle = {
+        width: 0.6, 
+        borderRadius: 3, 
+        fontSize: '0.55em'
+    }
+
     return (
         <div id='profile' className='base'>
             <Header />
@@ -123,7 +130,15 @@ export default function Profile () {
                                 score={skills[selectedSkill][0]} 
                                 desc={descriptions[selectedSkill]}
                             />
-                            </>
+                            <div className='centered-div'>
+                                <NavButton
+                                    variant={'contained'} 
+                                    style={buttonStyle} 
+                                    route={'/careers'} 
+                                    text={'Your Careers'} 
+                                />
+                            </div>
+                        </>
                         ) : !profileLoaded && allActivitiesComplete ? (
                             <>
                                 <h2>Loading Profile...</h2>

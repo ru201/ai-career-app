@@ -5,6 +5,7 @@ import Navbar from  '../components/navbar';
 import { useSelector } from 'react-redux';
 import Button from '@mui/material/Button'; 
 import { useNavigate } from "react-router-dom";
+import NavButton from '../components/navButton';
 
 export default function Careers () {
 
@@ -32,6 +33,13 @@ export default function Careers () {
         '&:hover': { backgroundColor: '#B0AEE0' }, 
     };
 
+    const navButtonStyle = {
+        width: 0.6, 
+        borderRadius: 3, 
+        fontSize: '0.55em',
+        marginTop: '2em'
+    }
+
     return (
         <div id='careers' className='base'>
             <Header />
@@ -42,13 +50,21 @@ export default function Careers () {
                         <>
                             <h2>Explore your careers</h2>
                             <p>
-                                Find your personalised career suggestions below. Select them to learn more about each career.
+                                Find your personalised career suggestions below.
+                                <br/><br/>
+                                Don't feel limited to them, these are simply career possibilities you may likely align with at this point in your life.
+                                <br/><br/>
+                                <span className="color-text">Select a career to learn more.</span>
                             </p>
                             <div className="career-buttons">
                                 {Object.keys(careers).map(career => (
-                                    <Button onClick={() => {navigate(`/careers/${career}`)}} sx={buttonStyle} key={career} variant="contained">{career}
-                                </Button>
+                                    <Button onClick={() => {navigate(`/careers/${career}`)}} sx={buttonStyle} key={career} variant="contained">
+                                        {career}
+                                    </Button>
                                 ))}
+                            </div>
+                            <div className="centered-div">
+                                <NavButton variant={'contained'} text={'Your Chat Assistant'} route={'/chatbot'} style={navButtonStyle} />
                             </div>
                         </>
                     ) : allActivitiesComplete && Object.keys(careers).length === 0 ? (

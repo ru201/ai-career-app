@@ -103,23 +103,20 @@ p {
 /*Chatbot CSS*/
 div .cs-message-list__typing-indicator-container div {
   color: rgb(163, 163, 163);
-  font-size: '0.7em';
+  font-size: 0.7em;
 }
 
 div .cs-main-container,
 div .cs-chat-container .cs-message-input {
   border: 0px;
-  font-size: '0.7em';
 }
 
 div .cs-chat-container .cs-message-input {
   background-color: #FFFFFF;
-  font-size: '0.7em';
 }
 
 div .cs-message--incoming .cs-message__content {
   background-color: #EAEBED;
-  font-size: '0.7em';
 }
 
 
@@ -127,30 +124,25 @@ div .ps__thumb-y,
 div .ps__rail-y:hover .ps__thumb-y,
 div .ps__rail-y:active .ps__thumb-y {
   background-color: #C6E3FA;
-  font-size: '0.7em';
 }
 
 div .cs-message-input__content-editor,
 div .cs-message-input__content-editor-wrapper
 {
   background-color: #EAEBED;
-  font-size: '0.7em';
 }
 
 div .cs-message-list
 {
   background-color: #ffffff;
-  font-size: '0.7em';
 }
 
 div .cs-message--outgoing .cs-message__content {
   background-color: #C6E3FA; 
-  font-size: '0.7em';
 }
 
 div .cs-typing-indicator__dot {
   background-color: rgb(163, 163, 163);
-  font-size: '0.7em';
 }
 
 /* Hobbies Form */
@@ -205,8 +197,20 @@ button {
   margin-top: 1.5em;
 }
 
+.centered-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+  height: fit-content;
+}
+
 .related-jobs-list {
   padding: 0;
   margin: 0;
   font-weight: normal;
+}
+
+.color-text {
+  color: #00008B;
 }

@@ -106,7 +106,7 @@ export default function Values () {
           <div className="main bottom-margin">
               <div className="inner-content">
                   <h1>Career Values</h1>
-                  <p>Your career values are what you find important and gain satisfaction from at work. <br /><br /> Identifying and understanding your career values can help you explore more suitable career options. <br /><br /> Let's find out what values are important to you. Select how important you find each item below.</p>
+                  <p>Your career values are what you find important and gain satisfaction from at work. <br /><br /> Identifying and understanding your career values can help you explore more suitable career options. <br /><br /> <span className="color-text"> Let's find out what values are important to you.  Select how important you find each item below.</span></p>
                   <RatingValueForm onChange={handleChange} questions={questions} />
                   <Box
                       sx={{

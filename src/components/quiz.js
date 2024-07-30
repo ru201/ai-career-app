@@ -27,7 +27,15 @@ const QuizOption = ({ text, imageUrl, onClick, selected }) => (
 const QuizBody = ({ handleSubmit, options, onOptionSelect, selectedOptions, images }) => (
     <Container maxWidth="md">
         {options.map((pair, index) => (
-            <Grid container spacing={2} alignItems="center" justifyContent="center" key={index} sx={{ marginBottom: 4 }}>
+            <Grid 
+                container 
+                spacing={2} 
+                alignItems="center" 
+                justifyContent="center" 
+                key={index} 
+                sx={{ marginBottom: 4 }} 
+                wrap="nowrap"
+            >
                 <Grid item xs={12} sm={5.2} sx={{ textAlign: 'center' }}> {/* Adjusted sm breakpoint */}
                     <QuizOption
                         text={pair[0]}

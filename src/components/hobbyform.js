@@ -17,6 +17,12 @@ const HobbyForm = ({ onChange }) => {
     onChange(newHobbies);  // Notify the parent component about the change
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    }
+  };
+
   return (
     <div style={{ marginTop: '1em' }}>
       <h2>Enter Your Hobbies</h2>
@@ -33,6 +39,7 @@ const HobbyForm = ({ onChange }) => {
             sx={{ width: '100%'}}
             InputProps={{ sx: { fontSize: '0.7em' }}}
             size='small'
+            onKeyDown={handleKeyDown}
           />
         ))}
         <Button type="button" onClick={handleAddHobby} variant="contained" sx={{ mb: 2, mt: 2, width: 0.7, fontSize: '0.6em' }}>

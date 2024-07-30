@@ -7,7 +7,6 @@ import { MainContainer, ChatContainer, MessageInput, TypingIndicator, MessageLis
 import { useSelector } from 'react-redux';
 import { GenerateMessage } from "../apiHelpers";
 
-
 export default function Chatbot() {
   const interests = useSelector((state) => state.data.interests);
   const skills = useSelector((state) => state.data.skills);
@@ -17,7 +16,7 @@ export default function Chatbot() {
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
-      message: "Hello, how may I help you today?",
+      message: "Hi! I'm Assistant Anne, your personal career advisor and life mentor.\n\nI am able to use your profile and career recommendations to help you find your perfect career and answer any questions you may have.\n\nHow may I assist you today?",
       sender: "ChatGPT",
       direction: "incoming"
     }
@@ -50,7 +49,7 @@ export default function Chatbot() {
     const systemMessage = [
       {
         role: "system",
-        content: "Act as a friendly, motivating career advisor and personal counsellor for senior high school students who may not know what career they want to pursue. Only output plain text. Do not output markdown."
+        content: "You are Assistant Anne, a friendly, motivating career advisor and life mentor for recent high school graduates who may not know what career they want to pursue. Only output plain text. Do not output markdown."
       },
       {
         role: "user",
