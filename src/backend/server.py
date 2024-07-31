@@ -150,6 +150,7 @@ async def generate_careers(data: dict):
     {{
         "career title" : {{
             "description": "A two to three sentence description of the career.",
+            "explanation": "A two to three sentence explanation speaking directly to the user as to why this career was chosen with respect to the user's interests, skills and values. Don't say user, use you.",
             "education-level": "The education level or experience required for the career.",
             "weekly-pay": "The average weekly pay for the career in Australia given in Australian Dollar in the format decimal number with only a dollar sign in front. For example: $1,200",
             "pay-rating": "One sentence saying whether the weekly pay is higher, on par or lower compared to the average weekly pay in Australia. For example: "Higher than the average weekly pay in Australia.",
