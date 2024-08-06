@@ -10,7 +10,7 @@ html, body {
 .base {
   width: 50vh;
   height: 90vh;
-  min-width: 600px;
+  min-width: 500px;
   max-height: 40em;
   background-color: #FFFFFF;
   border: 1px solid #ccc;
