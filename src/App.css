@@ -100,7 +100,7 @@ p {
 @media screen and (max-width: 600px) {
   .base {
     min-width: 100vw;
-    height: 90vh;
+    height: 100vh;
     max-height: 100vh;
     background-color: #FFFFFF;
     border: 1px solid #ccc;
