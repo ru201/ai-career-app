@@ -100,19 +100,10 @@ p {
 @media screen and (max-width: 600px) {
   .base {
     min-width: 100vw;
-    height: 100vh;
+    height: 90vh;
     max-height: 100vh;
     background-color: #FFFFFF;
     border: 1px solid #ccc;
-  }
-
-  .main {
-    height: 83%;
-    width: 100%;
-    background-color: transparent;
-    overflow: scroll;
-    overflow-x: hidden;
-    overflow-y: auto;
   }
 
   .activities {
@@ -122,7 +113,7 @@ p {
     justify-content: space-between;
     align-items: center;
     gap: 2.5em;
-    margin-top: 2.5em;
+    margin-top: 2em;
   }
 }
 
