@@ -106,15 +106,6 @@ p {
     border: 1px solid #ccc;
   }
 
-  .main {
-    height: 75%;
-    width: 100%;
-    background-color: transparent;
-    overflow: scroll;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-
   .activities {
     height: fit-content;
     display: flex;
