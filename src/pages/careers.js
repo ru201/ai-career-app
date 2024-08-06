@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import Button from '@mui/material/Button'; 
 import { useNavigate } from "react-router-dom";
 import NavButton from '../components/navButton';
+import ReactLoading from "react-loading";
 
 export default function Careers () {
 
@@ -63,14 +64,14 @@ export default function Careers () {
                                     </Button>
                                 ))}
                             </div>
-                            <div className="centered-div">
+                            <div className="centered-div submit-button-div">
                                 <NavButton variant={'contained'} text={'Your Chat Assistant'} route={'/chatbot'} style={navButtonStyle} />
                             </div>
                         </>
                     ) : allActivitiesComplete && Object.keys(careers).length === 0 ? (
-                        <>
-                            <h2>Loading Careers...</h2>
-                        </>
+                        <div className="centered-div">
+                            <ReactLoading type="cylon" color="#0E4C92" height={100} width={50} />
+                        </div>
                     ) : (
                         <>
                             <h2>Activities Incomplete</h2>

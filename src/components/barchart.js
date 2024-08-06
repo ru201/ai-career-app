@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 const CustomYAxisTick = ({ x, y, payload, handleSelect }) => {
@@ -8,7 +8,7 @@ const CustomYAxisTick = ({ x, y, payload, handleSelect }) => {
         y={3} 
         textAnchor="end" 
         fill="#666" 
-        fontSize={10.5}
+        fontSize={'0.5em'}
       >
         <tspan 
           onClick={() => handleSelect(payload.value)} 
@@ -22,20 +22,41 @@ const CustomYAxisTick = ({ x, y, payload, handleSelect }) => {
 };
 
 const HorizontalBarChart = ({ chartData, handleSelect }) => {
+  const [margin, setMargin] = useState({ left: 50 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenHeight = window.innerHeight;
+
+      if (screenHeight > 1100) {
+        setMargin({ left: 95 });
+      } else if (screenHeight > 1000) {
+        setMargin({ left: 80 });
+      } else {
+        setMargin({ left: 50 });
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Call the function initially to set the margins based on the initial window size
+    handleResize();
+
+    // Cleanup listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+
+  }, []);
+
   return (
     <div className='chart-container'>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           layout="vertical"
           data={chartData}
-          margin={{
-            top: 5,
-            right: 10,
-            left: 20
-          }}
+          margin={margin}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis type="number" tick={{ fontSize: 12 }} />
+          <XAxis type="number" tick={{ fontSize: '0.5em' }} />
           <YAxis 
             dataKey="name" 
             type="category" 

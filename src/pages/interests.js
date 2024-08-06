@@ -132,9 +132,13 @@ export default function Interests () {
                     <span className="color-text">Complete the activities below to help us understand your interests.</span>
                     <br /><br />
                     If you find yourself unsure about a certain interest, try getting an opinion from someone you trust and assess whether it reflects your experiences.</p> 
-                    <HobbyForm onChange={handleHobbyFormChange} />
-                    <SubjectForm onChange={handleSubjectFormChange} />
-                    <h2 style={{marginTop: '1.5em'}}>Interests Assessment</h2>
+                    <div className="top-margin">
+                      <HobbyForm onChange={handleHobbyFormChange} />
+                    </div>
+                    <div className="top-margin">
+                      <SubjectForm onChange={handleSubjectFormChange} />
+                    </div>
+                    <h2 className="top-margin">Interests Assessment</h2>
                     <p>For each statement below select how well you agree with it.</p>
                     <RatingForm questions={questions} onChange={handleRiasecFormChange} />
                     <Box

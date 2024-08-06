@@ -33,12 +33,12 @@ const HobbyForm = ({ onChange }) => {
             type="text"
             value={hobby}
             onChange={(e) => handleHobbyChange(index, e)}
-            label={<Typography sx={{fontSize: '0.7em', paddingRight: '1em'}}>Hobby {index + 1}</Typography>}
+            label={<Typography sx={{fontSize: '0.7em', paddingRight: '1.5em'}}>Hobby {index + 1}</Typography>}
             variant="outlined"
             margin="normal"
             sx={{ width: '100%'}}
             InputProps={{ sx: { fontSize: '0.7em' }}}
-            size='small'
+            size='large'
             onKeyDown={handleKeyDown}
           />
         ))}

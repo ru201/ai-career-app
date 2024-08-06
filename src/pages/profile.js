@@ -7,7 +7,8 @@ import BarChart from "../components/barchart";
 import ValuesChart from "../components/valueschart";
 import SkillsChart from "../components/skillschart";
 import ProfileDescription from "../components/profiledescription";
-import NavButton from "../components/navButton"
+import NavButton from "../components/navButton";
+import ReactLoading from "react-loading";
 
 export default function Profile () {
     
@@ -130,7 +131,7 @@ export default function Profile () {
                                 score={skills[selectedSkill][0]} 
                                 desc={descriptions[selectedSkill]}
                             />
-                            <div className='centered-div'>
+                            <div className='centered-div submit-button-div'>
                                 <NavButton
                                     variant={'contained'} 
                                     style={buttonStyle} 
@@ -140,9 +141,9 @@ export default function Profile () {
                             </div>
                         </>
                         ) : !profileLoaded && allActivitiesComplete ? (
-                            <>
-                                <h2>Loading Profile...</h2>
-                            </>
+                            <div className="centered-div">
+                                <ReactLoading type="cylon" color="#0E4C92" height={100} width={50} />
+                            </div>
                         ) : (
                             <>
                                 <h2>Activities Incomplete</h2>

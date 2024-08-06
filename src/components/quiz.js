@@ -19,7 +19,7 @@ const QuizOption = ({ text, imageUrl, onClick, selected }) => (
             backgroundColor: selected ? 'primary.light' : 'background.paper',
         }}
     >
-        <img src={imageUrl} alt={text} style={{ width: '3.2em', marginBottom: 10 }} />
+        <img src={imageUrl} alt={text} style={{ width: '3.2em', marginBottom: '1em' }} />
         <Typography variant="body2" align="center" sx={{ fontSize: '0.7em', textTransform: "capitalize" }}>{text}</Typography>
     </Button>
 );
@@ -33,7 +33,7 @@ const QuizBody = ({ handleSubmit, options, onOptionSelect, selectedOptions, imag
                 alignItems="center" 
                 justifyContent="center" 
                 key={index} 
-                sx={{ marginBottom: 4 }} 
+                sx={{ marginBottom: '2em' }} 
                 wrap="nowrap"
             >
                 <Grid item xs={12} sm={5.2} sx={{ textAlign: 'center' }}> {/* Adjusted sm breakpoint */}

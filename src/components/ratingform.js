@@ -32,7 +32,7 @@ const RatingForm = ({ onChange, questions }) => {
           <Box key={category}>
             {/* <Typography variant="h6">{category}</Typography> */}
             {questions[category].map((question, index) => (
-              <Box key={index} mb={1}>
+              <Box key={index} mb={'1em'}>
                 <Typography sx={{ color: '#1976D2', fontWeight: 600, mb: 1, fontSize: '0.7em' }}>{question}</Typography>
                 <FormControl component="fieldset">
                   <RadioGroup

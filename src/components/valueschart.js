@@ -17,7 +17,7 @@ const ValuesChart = ({ chartData, handleSelect }) => {
                     fill="#666666"
                     textAnchor={x > cx ? 'start' : 'end'}
                     dominantBaseline="central"
-                    style={{ fontSize: 10, cursor: 'pointer' }}
+                    style={{ fontSize: '0.6em', cursor: 'pointer' }}
                 >
                     {name}
                 </text>
@@ -53,9 +53,9 @@ const ValuesChart = ({ chartData, handleSelect }) => {
                         dataKey="score"
                         isAnimationActive={false}
                         data={chartData}
-                        cx="50%"
+                        cx="52%"
                         cy="50%"
-                        outerRadius={40}
+                        outerRadius="50%"
                         label={renderCustomizedLabel}
                         labelLine={renderCustomizedLabelLine}
                     >

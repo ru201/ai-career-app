@@ -26,12 +26,12 @@ const RatingValueForm = ({ onChange, questions }) => {
     };
 
     return (
-        <div style={{ marginTop: '1.5em' }}>
+        <div className="top-margin">
         <Box>
             {Object.keys(questions).map(category => (
             <Box key={category}>
                 {questions[category].map((question, index) => (
-                <Box key={index} mb={1}>
+                <Box key={index} mb={'1em'}>
                     <Typography sx={{ color: '#1976D2', fontWeight: 600, mb: 1, fontSize:'0.7em' }}>{question}</Typography>
                     <FormControl component="fieldset">
                         <RadioGroup
@@ -40,10 +40,10 @@ const RatingValueForm = ({ onChange, questions }) => {
                             onChange={(event) => handleRadioChange(category, index, Number(event.target.value))}
                             sx={{mb: 1, ml: 1}}
                         >
-                            <FormControlLabel value={4} control={<Radio sx={style} />} label={<Typography sx={{ fontSize:'0.7em' }}>Very Important</Typography>} />
-                            <FormControlLabel value={3} control={<Radio sx={style} />} label={<Typography sx={{ fontSize:'0.7em' }}>Important</Typography>} />
-                            <FormControlLabel value={2} control={<Radio sx={style} />} label={<Typography sx={{ fontSize:'0.7em' }}> Neutral</Typography>} />
-                            <FormControlLabel value={1} control={<Radio sx={style} />} label={<Typography sx={{ fontSize:'0.7em' }}>Not Important</Typography>} />
+                            <FormControlLabel value={4} control={<Radio sx={style} />} label={<Typography sx={{ fontSize:'0.7em' }}>Extremely Important</Typography>} />
+                            <FormControlLabel value={3} control={<Radio sx={style} />} label={<Typography sx={{ fontSize:'0.7em' }}>Moderately Important</Typography>} />
+                            <FormControlLabel value={2} control={<Radio sx={style} />} label={<Typography sx={{ fontSize:'0.7em' }}>Slightly Important</Typography>} />
+                            <FormControlLabel value={1} control={<Radio sx={style} />} label={<Typography sx={{ fontSize:'0.7em' }}>Not Important At All</Typography>} />
                         </RadioGroup>
                     </FormControl>
                 </Box>

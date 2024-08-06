@@ -34,7 +34,7 @@ export default function Career () {
                 <div className="inner-content">
                     <h1>{careerTitle}</h1>
                     <p>{careers[careerTitle]['description']}</p>
-                    <h2>Selection Explanation</h2>
+                    <h2>Why This Career Fits You</h2>
                     <p>{careers[careerTitle]['explanation']}</p>
                     <h2>Recommended Qualifications</h2>
                     <p>{careers[careerTitle]['education-level']}</p>

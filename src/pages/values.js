@@ -38,11 +38,11 @@ export default function Values () {
       Object.keys(questions).forEach(category => {
           questions[category].forEach((element, index) => {
             if (values[category][index] === 4) {
-              mappedValues[element] = "Very Important";
+              mappedValues[element] = "Extremely Important";
             } else if (values[category][index] === 3) {
-              mappedValues[element] = "Important";
+              mappedValues[element] = "Moderately Important";
             } else if (values[category][index] === 2) {
-              mappedValues[element] = "Neutral";
+              mappedValues[element] = "Slightly Important";
             } else if (values[category][index] === 1) {
               mappedValues[element] = "Not Important";
             }
