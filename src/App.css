@@ -17,7 +17,7 @@ html, body {
 }
 
 .main {
-  height: 82%;
+  height: 80%;
   width: 100%;
   background-color: transparent;
   overflow: scroll;
@@ -85,10 +85,6 @@ h3 {
 
 .top-margin {
   margin-top: 2em;
-}
-
-.bottom-margin {
-  margin-bottom: 2em;
 }
 
 ul, ol {

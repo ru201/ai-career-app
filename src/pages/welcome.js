@@ -31,6 +31,7 @@ export default function Welcome () {
         "Architect",
         "Surgeon",
         "Lawyer",
+        "Interior Designer",
         "Engineer",
         "Nuclear Physicist",
         "Chef",
@@ -43,7 +44,7 @@ export default function Welcome () {
             <div className='main centered-div'>
                 <div className='welcome-content centered-div'>
                     <h1>Welcome to <span className='app-name'>findmyfuture</span> </h1>
-                    <p className='bottom-margin'>Your personal career advisor and self-discovery tool.</p>
+                    <p style={{marginBottom: '3em'}}>Your personal career advisor and self-discovery tool.</p>
                     <Typewriter
                         options={{
                             strings: careers,
@@ -53,13 +54,13 @@ export default function Welcome () {
                             cursorClassName: 'Typewriter__cursor typewriter-cursor'
                         }}
                     />
-                    <p className='top-margin'>Enter your name below to get started.</p>
+                    <p style={{marginTop: '3em'}}>Enter your name below to get started.</p>
                     <TextField
                         label="Your Name" 
                         variant="outlined" 
                         inputRef={valueRef}
                         onKeyDown={handleKeyDown} 
-                        sx={{ width: 0.7 }}
+                        sx={{ width: 0.7, mt: 1 }}
                         InputProps={{ sx: { fontSize: '0.7em' }}}
                         InputLabelProps={{ sx: { fontSize: '0.7em' }}}
                     />    
@@ -67,7 +68,7 @@ export default function Welcome () {
                         type="button" 
                         onClick={handleSubmit} 
                         variant="contained" 
-                        sx={{ mt: 4, width: '15em', fontSize: '0.6em' }}
+                        sx={{ mt: 3, width: '15em', fontSize: '0.6em' }}
                     >    
                         Find Your Future
                     </Button>  
