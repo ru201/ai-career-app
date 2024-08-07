@@ -17,6 +17,12 @@ const SubjectForm = ({ onChange }) => {
     onChange(newSubjects);  // Notify the parent component about the change
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    }
+  };
+
   return (
     <div style={{ marginTop: '1em' }}>
       <h2>Enter Your Favourite School Subjects</h2>
@@ -33,6 +39,7 @@ const SubjectForm = ({ onChange }) => {
             sx={{ width: '100%'}}
             InputProps={{ sx: { fontSize: '0.7em' }}}
             size='large'
+            onKeyDown={handleKeyDown}
           />
         ))}
         <Button type="button" onClick={handleAddSubject} variant="contained" sx={{ mb: 2, mt: 2, width: 0.7, fontSize: '0.6em' }}>

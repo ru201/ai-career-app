@@ -33,7 +33,7 @@ export default function Skills () {
         dispatch(completeSkills(newSkills));
         GenerateSkillsProfile(newSkills, interests, dispatch);
         careerGeneration(newSkills);
-        navigate('/');
+        navigate('/home');
     }
 
     const options = [
@@ -108,7 +108,7 @@ export default function Skills () {
     return (
         <div id='skills' className='base'>
             <Header />
-            <div className="main bottom-margin">
+            <div className="main">
                 <div className="inner-content">
                     <h1 style={{marginBottom: '1em'}}>Skills Discovery</h1>
                     <p style={{marginBottom: '2em'}}>Considering what you are skilled at is a great way to find careers that match your skillsets and can improve career decision making. <br /><br /> <span className="color-text"> Select the option that you are most skilled at from the 21 choices below. </span>

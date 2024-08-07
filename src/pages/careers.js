@@ -44,7 +44,7 @@ export default function Careers () {
     return (
         <div id='careers' className='base'>
             <Header />
-            <div className="main bottom-margin">
+            <div className="main">
                 <div className="inner-content">
                     <h1>Your Careers</h1>
                     {allActivitiesComplete && Object.keys(careers).length > 0 ? (

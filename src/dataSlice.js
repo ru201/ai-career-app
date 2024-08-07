@@ -6,6 +6,7 @@ const dataSlice = createSlice({
     interestsComplete: false,
     valuesComplete: false,
     skillsComplete: false,
+    name: "",
     interests: {},
     values: [],
     skills: [],
@@ -15,6 +16,9 @@ const dataSlice = createSlice({
     careers: {}
   },
   reducers: {
+    enterName: (state, action) => {
+      state.name = action.payload;
+    },
     completeInterests: (state, action) => {
       state.interestsComplete = true;
       state.interests = action.payload;
@@ -50,6 +54,6 @@ const dataSlice = createSlice({
   },
 });
 
-export const { completeInterests, completeValues, completeSkills, updateInterestProfile, updateValuesProfile, updateSkillsProfile, updateCareers, resetData } = dataSlice.actions;
+export const { completeInterests, completeValues, completeSkills, updateInterestProfile, updateValuesProfile, updateSkillsProfile, updateCareers, enterName, resetData } = dataSlice.actions;
 
 export default dataSlice.reducer;

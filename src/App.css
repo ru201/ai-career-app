@@ -17,7 +17,7 @@ html, body {
 }
 
 .main {
-  height: 80%;
+  height: 82%;
   width: 100%;
   background-color: transparent;
   overflow: scroll;
@@ -25,9 +25,8 @@ html, body {
   overflow-y: auto;
 }
 
-
 .header {
-  margin: 0.05em 1.5em 0.2em 1.5em;
+  margin: 0 1.5em;
   display: flex;
   justify-content: space-between;
   height: fit-content;
@@ -60,6 +59,16 @@ h3 {
   font-size: 0.7em;
 }
 
+.typewriter-text {
+  font-size: 1em;
+  color: 	#0E4C92;
+}
+
+.typewriter-cursor {
+  font-weight: bold;
+  color: 	#0E4C92;
+}
+
 .home-msg {
   margin: 0 1.5em
 }
@@ -69,12 +78,17 @@ h3 {
   margin: 0 1.5em;
 }
 
+.welcome-content {
+  height: 100%;
+  margin: 0 1em;
+}
+
 .top-margin {
   margin-top: 2em;
 }
 
 .bottom-margin {
-  margin-bottom: 0px;
+  margin-bottom: 2em;
 }
 
 ul, ol {
@@ -185,7 +199,7 @@ button {
 /* Charts Style */
 .chart-container {
   width: 100%;
-  max-width: 600px;  
+  /* max-width: 600px;   */
   height: 10em;  
 }
 
@@ -220,6 +234,8 @@ button {
   justify-content: center;
   align-items: center;
   height: inherit;
+  flex-direction: column;
+  text-align: center;
 }
 
 .submit-button-div {

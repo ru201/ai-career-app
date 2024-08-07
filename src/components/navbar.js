@@ -12,7 +12,7 @@ export default function Navbar () {
     const navigate = useNavigate();
 
     const handleClickHome = () => {
-        navigate('/');
+        navigate('/home');
     };
 
     const handleClickCareers = () => {

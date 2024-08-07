@@ -52,7 +52,7 @@ export default function Values () {
       dispatch(completeValues(mappedValues));
       GenerateValuesProfile(mappedValues, dispatch);
       careerGeneration(mappedValues);
-      navigate('/');
+      navigate('/home');
   }
 
   const questions = {
@@ -103,7 +103,7 @@ export default function Values () {
   return (
       <div id='values' className='base'>
           <Header />
-          <div className="main bottom-margin">
+          <div className="main">
               <div className="inner-content">
                   <h1>Career Values</h1>
                   <p>Your career values are what you find important and gain satisfaction from at work. <br /><br /> Identifying and understanding your career values can help you explore more suitable career options. <br /><br /> <span className="color-text"> Let's find out what values are important to you.  Select how important you find each item below.</span></p>

@@ -89,7 +89,7 @@ export default function Profile () {
     return (
         <div id='profile' className='base'>
             <Header />
-            <div className="main bottom-margin">
+            <div className="main">
                 <div className="inner-content">
                     <h1>Your Profile</h1>
 

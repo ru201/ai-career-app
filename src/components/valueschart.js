@@ -53,7 +53,7 @@ const ValuesChart = ({ chartData, handleSelect }) => {
                         dataKey="score"
                         isAnimationActive={false}
                         data={chartData}
-                        cx="52%"
+                        cx="51.5%"
                         cy="50%"
                         outerRadius="50%"
                         label={renderCustomizedLabel}

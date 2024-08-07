@@ -73,7 +73,7 @@ export default function Interests () {
 
         careerGeneration({'Hobbies': hobbies, 'Subjects': subjects, 'Scores': mappedScores});
 
-        navigate('/');
+        navigate('/home');
     };
 
     const questions = {
@@ -124,7 +124,7 @@ export default function Interests () {
     return (
         <div id='interests' className='base'>
             <Header />
-            <div className="main bottom-margin">
+            <div className="main">
                 <div className="inner-content">
                     <h1>Interest Discovery</h1>
                     <p>Identifying and understanding your interests is a great starting point for building the self-awareness needed for career decision making.

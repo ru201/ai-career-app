@@ -12,11 +12,12 @@ export default function Chatbot() {
   const skills = useSelector((state) => state.data.skills);
   const values = useSelector((state) => state.data.values);
   const careers = useSelector((state) => state.data.careers);
+  const name = useSelector((state) => state.data.name);
 
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
-      message: "Hi! I'm Assistant Anne, your personal career advisor and life mentor.\n\nI am able to use your profile and career recommendations to help you find your perfect career and answer any questions you may have.\n\nHow may I assist you today?",
+      message: `Hi ${name}! I'm Assistant Anne, your personal career advisor and life mentor.\n\nI am able to use your profile and career recommendations to help you find your perfect career and answer any questions you may have.\n\nHow may I assist you today?`,
       sender: "ChatGPT",
       direction: "incoming"
     }

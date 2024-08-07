@@ -11,6 +11,7 @@ import Profile from './pages/profile';
 import Careers from './pages/careers';
 import Chatbot from './pages/chatbot';
 import Career from './pages/career';
+import Welcome from './pages/welcome';
 import { Provider } from 'react-redux';
 import { persistor, store } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -22,7 +23,8 @@ function App() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <Routes>
-          <Route path='/' element={<Home />}/>
+          <Route path='/' element={<Welcome />}/>
+          <Route path='/home' element={<Home />}/>
           <Route path='/interests' element={<Interests />}/>
           <Route path='/skills' element={<Skills />}/>
           <Route path='/values' element={<Values />}/>

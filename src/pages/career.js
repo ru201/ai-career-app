@@ -30,7 +30,7 @@ export default function Career () {
     return (
         <div id='careers' className='base'>
             <Header />
-            <div className="main bottom-margin">
+            <div className="main">
                 <div className="inner-content">
                     <h1>{careerTitle}</h1>
                     <p>{careers[careerTitle]['description']}</p>
