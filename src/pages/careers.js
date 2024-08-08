@@ -53,7 +53,7 @@ export default function Careers () {
                             <p>
                                 Find your personalised career suggestions below.
                                 <br/><br/>
-                                Don't feel limited to them, these are simply career possibilities you may likely align with at this point in your life.
+                                Don't feel limited by these options, they are simply career possibilities you may likely align with at this point in your life.
                                 <br/><br/>
                                 <span className="color-text">Select a career to learn more.</span>
                             </p>
