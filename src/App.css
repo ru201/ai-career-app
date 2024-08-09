@@ -29,13 +29,7 @@ html, body {
   margin: 0 1.5em;
   display: flex;
   justify-content: space-between;
-  height: fit-content;
-}
-
-.app-name {
-  font-size: 1em;
-  font-weight: normal;
-  color: 	#0E4C92;
+  height: 10%;
 }
 
 .navbar {
@@ -43,6 +37,13 @@ html, body {
   justify-content: space-between;
   align-items: center;
   margin: 0 1.4em;
+  height: 10%;
+}
+
+.app-name {
+  font-size: 1em;
+  font-weight: normal;
+  color: 	#0E4C92;
 }
 
 h1 {
@@ -99,7 +100,7 @@ ul, ol {
   justify-content: space-between;
   align-items: center;
   gap: 2em;
-  margin-top: 1.5em;
+  margin-top: 1.8em;
 }
 
 p {
