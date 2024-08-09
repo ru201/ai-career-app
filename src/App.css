@@ -99,8 +99,8 @@ ul, ol {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 2em;
-  margin-top: 1.8em;
+  gap: 2.5em;
+  margin-top: 2em;
 }
 
 p {
@@ -124,7 +124,7 @@ p {
     justify-content: space-between;
     align-items: center;
     gap: 2.5em;
-    margin-top: 2em;
+    margin-top: 2.8em;
   }
 }
 
