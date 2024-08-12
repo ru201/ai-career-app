@@ -4,6 +4,7 @@ import Header from '../components/header';
 import Navbar from  '../components/navbar';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import NavButton from "../components/navButton";
 
 export default function Career () {
 
@@ -26,6 +27,12 @@ export default function Career () {
     //     growthRating = 'Very strong growth indicating rapid expansion in the field resulting in many new job opportunities.';
     // }
 
+    const navButtonStyle = {
+        width: 0.6, 
+        borderRadius: 3, 
+        fontSize: '0.55em',
+        marginTop: '2em'
+    }
     
     return (
         <div id='careers' className='base'>
@@ -62,6 +69,9 @@ export default function Career () {
                             careers[careerTitle]['links'].map((link) => {return <li><a href={link} target="_blank" rel="noreferrer">{link}</a></li>})
                         }
                     </ol>
+                    <div className="centered-div submit-button-div">
+                        <NavButton variant={'contained'} text={'Back to Careers'} route={'/careers'} style={navButtonStyle} />
+                    </div>
                 </div>
             </div>
             <Navbar />   

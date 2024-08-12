@@ -96,7 +96,8 @@ export default function Profile () {
                     { allActivitiesComplete && profileLoaded ? (
                         <>
                             <h2>Interests</h2>
-                            <p>The bar graph below shows your level of interest in various areas. Select an interest area to learn more.</p>
+                            <p>The bar graph below shows your level of interest in various areas.</p>
+                            <p className="color-text">Select an interest area to learn more.</p>
                             <BarChart 
                                 chartData={chartInterests} 
                                 handleSelect={handleSelectInterest} 
@@ -108,7 +109,8 @@ export default function Profile () {
                                 desc={descriptions[selectedInterest]}  
                             />
                             <h2>Values</h2>
-                            <p>The pie chart below displays your major career values.  Select a value segment to learn more.</p>
+                            <p>The pie chart below displays your major career values.</p>
+                            <p className="color-text">Select a value segment to learn more.</p>
                             <ValuesChart 
                                 chartData={chartValues} 
                                 handleSelect={handleSelectValue} 
@@ -120,7 +122,8 @@ export default function Profile () {
                                 desc={descriptions[selectedValue]} 
                             />
                             <h2>Aptitudes</h2>
-                            <p>The radar chart below depicts the distribution of your aptitudes. Select an aptitude label to learn more.  </p>
+                            <p>The radar chart below depicts the distribution of your aptitudes.</p>
+                            <p className="color-text">Select an aptitude label to learn more.</p>
                             <SkillsChart 
                                 chartData={chartSkills} 
                                 handleSelect={handleSelectSkill} 

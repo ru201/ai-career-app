@@ -89,7 +89,7 @@ export default function Chatbot() {
               typingIndicator={typing ? <TypingIndicator content="Typing" /> : null}
             >
               {messages.map((message, i) => (
-                <Message style={{fontSize: '0.7em'}} key={i} model={{ message: message.message, direction: message.direction, sender: message.sender }} />
+                <Message style={{fontSize: '0.7em', marginBottom: '0.7em'}} key={i} model={{ message: message.message, direction: message.direction, sender: message.sender }} />
               ))}
             </MessageList>
             <MessageInput style={{fontSize: '0.7em'}} placeholder='Type message here' onSend={handleSend} attachButton={false} />
