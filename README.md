@@ -2,6 +2,12 @@
 
 A career support tool powered by OpenAI that features a personal career advisor, self-discovery activities, profile insights and career recommendations. 
 
+Check it out at: https://findmyfuture.netlify.app/ 
+
+## Software Architecture
+
+![image](https://github.com/user-attachments/assets/cbf635dd-711e-45ef-b0b5-d15f59b88f67)
+
 ## Available Scripts
 
 In the project directory, you can run:
