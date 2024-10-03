@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# FindMyFuture
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A career support tool powered by OpenAI that features a personal career advisor, self-discovery activities, profile insights and career recommendations. 
 
 ## Available Scripts
 
