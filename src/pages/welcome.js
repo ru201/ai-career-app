@@ -69,6 +69,7 @@ export default function Welcome () {
                         onClick={handleSubmit} 
                         variant="contained" 
                         sx={{ mt: 3, width: '15em', fontSize: '0.6em' }}
+                        className='mui-button'
                     >    
                         Find Your Future
                     </Button>  

@@ -15,24 +15,38 @@ import Welcome from './pages/welcome';
 import { Provider } from 'react-redux';
 import { persistor, store } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
+// import { createTheme } from '@mui/material/styles';
+// import { ThemeProvider } from '@mui/material/styles';
 
 function App() {
   persistor.purge();
 
+  // const theme = createTheme({
+  //   typography: {
+  //     fontFamily: [
+  //       'Karla',
+  //       'Arial',
+  //       'sans-serif'
+  //     ].join(','),
+  //   }
+  // });
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Routes>
-          <Route path='/' element={<Welcome />}/>
-          <Route path='/home' element={<Home />}/>
-          <Route path='/interests' element={<Interests />}/>
-          <Route path='/skills' element={<Skills />}/>
-          <Route path='/values' element={<Values />}/>
-          <Route path='/profile' element={<Profile />}/>
-          <Route path='/careers' element={<Careers />}/>
-          <Route path='/careers/:careerTitle' element={<Career />}/>
-          <Route path='/chatbot' element={<Chatbot />}/>
-        </Routes>
+        {/* <ThemeProvider theme={theme}> */}
+          <Routes>
+            <Route path='/' element={<Welcome />}/>
+            <Route path='/home' element={<Home />}/>
+            <Route path='/interests' element={<Interests />}/>
+            <Route path='/skills' element={<Skills />}/>
+            <Route path='/values' element={<Values />}/>
+            <Route path='/profile' element={<Profile />}/>
+            <Route path='/careers' element={<Careers />}/>
+            <Route path='/careers/:careerTitle' element={<Career />}/>
+            <Route path='/chatbot' element={<Chatbot />}/>
+          </Routes>
+        {/* </ThemeProvider> */}
       </PersistGate>
     </Provider>
   );
